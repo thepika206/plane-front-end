@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // page components
@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import ActivityList from './pages/ActivityList/ActivityList'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -15,12 +16,15 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as activityService from './services/activityService'
 
 // styles
 import './App.css'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [activities, setActivities] = useState([])
+
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -32,6 +36,14 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
+  useEffect(() => {
+    const fetchAllActivities = async() => {
+      const activityData = await activityService.index()
+      setActivities(activityData)
+    }
+    fetchAllActivities()
+  },[])
 
   return (
     <>
@@ -45,6 +57,10 @@ const App = () => {
         <Route
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+        />
+        <Route
+          path="/activities"
+          element={<ActivityList activities={activities}/>}
         />
         <Route
           path="/profiles"
