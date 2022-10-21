@@ -41,6 +41,7 @@ const App = () => {
   useEffect(() => {
     const fetchAllActivities = async() => {
       const activityData = await activityService.index()
+      console.log(activityData)
       setActivities(activityData)
     }
     fetchAllActivities()
