@@ -1,22 +1,24 @@
 import styles from './ActivityList.module.css'
+import ActivityCard from '../../components/ActivityCard/ActivityCard';
 
 const ActivityList = (props) => {
   console.log('Activities', props)
   return (
     <div className={styles.allActivities}>
       <h1>All Activities</h1>
-      <main className={styles.container}>
 
-        <div>
+      <div>
+        <main className={styles.container}>
+
           {props.activities.map(activity =>
-            <p key={activity._id}>
-              {activity.name}
-            </p>
+
+            <ActivityCard key={activity._id} activity={activity} />
 
           )}
-        </div>
 
-      </main>
+        </main>
+      </div>
+
     </div>
 
   );
