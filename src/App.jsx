@@ -66,7 +66,7 @@ const App = () => {
         />
         <Route
           path="/activities/:id"
-          element={<ActivityDetails activities={activities}/>}
+          element={<ActivityDetails activities={activities} user={user}/>}
         />
         <Route
           path="/profiles"

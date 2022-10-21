@@ -6,6 +6,16 @@
 }
 .actDescBox {
   border: 1px solid black;
+  margin: 5vh auto;
   width: 40vw;
   height: 30vh;
+}
+.bottomThird{
+  display:flex;
+  flex-direction: row;
+  width: 40vw;
+  justify-content:space-between;
+}
+.bottomThird > * {
+  margin: auto 5vh;
 }
