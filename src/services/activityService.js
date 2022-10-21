@@ -13,6 +13,16 @@ const index = async() => {
   }
 }
 
+const show = async(id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`)
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
-  index
+  index,
+  show
 }

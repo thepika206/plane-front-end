@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import ActivityList from './pages/ActivityList/ActivityList'
+import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -61,6 +62,10 @@ const App = () => {
         <Route
           path="/activities"
           element={<ActivityList activities={activities}/>}
+        />
+        <Route
+          path="/activities/:id"
+          element={<ActivityDetails activities={activities}/>}
         />
         <Route
           path="/profiles"
