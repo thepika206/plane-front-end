@@ -40,7 +40,7 @@ const App = () => {
 
   const handleAddActivity = async (activityData) => {
     const newActivity = await activityService.create(activityData)
-    setActivities([newActivity, ...activities])
+    setActivities([...activities,newActivity])
     navigate('/activities')
   }
 
