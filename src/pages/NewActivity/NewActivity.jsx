@@ -1,7 +1,7 @@
 import { useState } from "react"
 import styles from './NewActivity.module.css'
 
-const NewBlog = (props) => {
+const NewActivity = (props) => {
   const [form, setForm] = useState({
     name: '',
     description: '',
@@ -59,4 +59,4 @@ const NewBlog = (props) => {
   )
 }
 
-export default NewBlog
+export default NewActivity
