@@ -3,7 +3,7 @@ import Plane from '../../assets/Plane.png'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
-    <div className='container-fluid bg-light' style={{ backgroundColor: '949494' }}>
+    <div className='container-fluid' style={{ backgroundColor: '#E4EFF8' }}>
       <nav className='navbar navbar-expand-xl' >
         <a className='navbar-brand' href='/'>
           <img src={Plane} alt="Plane Logo" width='30' />
