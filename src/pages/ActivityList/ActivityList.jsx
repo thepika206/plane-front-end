@@ -7,9 +7,11 @@ const ActivityList = (props) => {
   return (
     <div className={styles.allActivities}>
       <h1>All Activities</h1>
-      <Link to='/activities/new'>
-            <button className='btn btn-primary'>New Activity</button>
-      </Link>
+      <div className="">
+        <Link to='/activities/new'>
+          <button className="button-primary">New Activity</button>
+        </Link>
+      </div>
           
 
       <div>

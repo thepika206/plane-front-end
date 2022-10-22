@@ -1,5 +1,6 @@
 import { useState } from "react"
 import styles from './NewActivity.module.css'
+import { Link } from "react-router-dom"
 
 const NewActivity = (props) => {
   const [form, setForm] = useState({
@@ -18,10 +19,9 @@ const NewActivity = (props) => {
   }
 
   return (
-    <main className="">
+    <main className={styles.container}>
       <h1>New Activity</h1>
       <form onSubmit={handleSubmit} autoComplete="off">
-      <div className="d-flex flex-column">
         <label htmlFor="name-input">Name of Activity</label>
         <input
           required
@@ -31,6 +31,7 @@ const NewActivity = (props) => {
           value={form.name}
           placeholder="...examples: Snorkeling off the beach / Food trucks on the main avenue "
           onChange={handleChange}
+          className={styles.input}
           />
         <label htmlFor="description-input">Description</label>
 				<textarea
@@ -55,8 +56,7 @@ const NewActivity = (props) => {
           <option value="Dallas">Dallas</option>
           <option value="Miami">Miami</option>
         </select>
-        <button className="btn btn-primary" type="submit">placeholder</button>
-      </div>
+        <button className="" type="submit">placeholder</button>
       </form>
     </main>
   )

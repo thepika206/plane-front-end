@@ -6,9 +6,6 @@
   grid-template-columns: repeat(1, 1fr);
 }
 
-.container > form > button.btn {
-  background-color: blue;
-}
 
 @media only screen and (min-width: 900px) {
   .container {
