@@ -1,3 +1,13 @@
+body {
+  background: #9EADBD;
+}
+
+.allActivitiesTitle {
+  color: #3A4856;
+}
+
+
+
 .container {
   gap: 14px;
   width: 100%;
@@ -5,7 +15,6 @@
   padding: 21px;
   grid-template-columns: repeat(1, 1fr);
 }
-
 
 @media only screen and (min-width: 900px) {
   .container {

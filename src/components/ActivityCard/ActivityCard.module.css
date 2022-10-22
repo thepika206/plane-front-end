@@ -4,7 +4,8 @@
   padding: 14px 21px;
   border-radius: 5px;
   border: 1px solid var(--border);
-  background-color: var(--card-background);
+  /* background-color: var(--card-background); */
+  background-color: #E4EFF8;
   box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
   -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
   -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
@@ -83,4 +84,8 @@ a {
 .container div section img {
   width: 14px;
 	height: 14px;
+}
+
+.text {
+  color: #3A4856
 }

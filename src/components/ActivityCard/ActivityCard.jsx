@@ -5,13 +5,13 @@ const ActivityCard = ({activity}) => {
   return (
     <Link to={`/activities/${activity._id}`}>
       <article className={styles.container}>
-        <header>
+        <header className={styles.text}>
           <span>
             <h1>{activity.name}</h1>
             <h2>{activity.destination}</h2>
           </span>
         </header>
-        <p>{activity.description}</p>
+        <p className={styles.text}>{activity.description}</p>
       </article>
     </Link>
   );

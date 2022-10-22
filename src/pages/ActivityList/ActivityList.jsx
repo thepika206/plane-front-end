@@ -6,7 +6,7 @@ const ActivityList = (props) => {
   console.log('Activities', props)
   return (
     <div className={styles.allActivities}>
-      <h1>All Activities</h1>
+      <h1 className={styles.allActivitiesTitle}>All Activities</h1>
       <div className="">
         <Link to='/activities/new'>
           <button className="button-primary">New Activity</button>
