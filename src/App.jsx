@@ -18,6 +18,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as activityService from './services/activityService'
+import * as tripService from './services/tripService'
 
 // styles
 import './App.css'
@@ -25,6 +26,7 @@ import './App.css'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [activities, setActivities] = useState([])
+  const [trips,setTrips] = useState([])
 
   const navigate = useNavigate()
 
@@ -44,7 +46,13 @@ const App = () => {
       console.log(activityData)
       setActivities(activityData)
     }
+    const fetchTrips = async() => {
+      const tripData = await tripService.index()
+      console.log(tripData)
+      setTrips(tripData)
+    }
     fetchAllActivities()
+    fetchTrips()
   },[])
 
   return (
@@ -66,7 +74,7 @@ const App = () => {
         />
         <Route
           path="/activities/:id"
-          element={<ActivityDetails activities={activities} user={user}/>}
+          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
         />
         <Route
           path="/profiles"

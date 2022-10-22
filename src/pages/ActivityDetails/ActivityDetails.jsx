@@ -4,26 +4,21 @@ import styles from './ActivityDetails.module.css'
 
 
 import * as activityService from '../../services/activityService'
-import * as tripService from '../../services/tripService'
 
 
 const ActivityDetails = (props) => {
   const { id } = useParams()
   const [activity, setActivity] = useState(null)
-  const [trips,setTrips] = useState([])
+
 
   useEffect(() => {
     const fetchActivity = async () => {
       const activityData = await activityService.show(id)
       setActivity(activityData)
     }
-    const fetchTrips = async() => {
-      const tripData = await tripService.index()
-      console.log(tripData)
-      setTrips(tripData)
-    }
+
     fetchActivity()
-    fetchTrips()
+
   }, [id])
 
   if (!activity) return <h1>Loading...</h1>
@@ -41,7 +36,7 @@ const ActivityDetails = (props) => {
           <p>Category: {activity.category}</p>
           <p>Time of Day: {activity.timeOfDay}</p>
           <select name="tripName" id="tripName">
-          {trips.map(trip =>trip.owner._id === props.user._id ? <option>{trip.name}</option>:null)}
+          {props.trips.map(trip =>trip.owner._id === props.user._id ? <option>{trip.name}</option>:null)}
           </select>
         </div>
         <div className="reviewsSection">
