@@ -1,3 +1,10 @@
 .navbar a {
   text-decoration: none;
 }
+
+.button-primary {
+  color: white;
+  font-weight: 600;
+  width: 200px; 
+  background: var(--primary);
+}
