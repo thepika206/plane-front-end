@@ -43,12 +43,12 @@ const App = () => {
   useEffect(() => {
     const fetchAllActivities = async() => {
       const activityData = await activityService.index()
-      console.log(activityData)
+      // console.log(activityData)
       setActivities(activityData)
     }
     const fetchTrips = async() => {
       const tripData = await tripService.index()
-      console.log(tripData)
+      // console.log(tripData)
       setTrips(tripData)
     }
     fetchAllActivities()
