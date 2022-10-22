@@ -73,7 +73,7 @@ const App = () => {
         
         <Route
           path="/activities/new"
-          elementk={
+          element={
             <ProtectedRoute user={user}>
               <NewActivity handleAddActivity={handleAddActivity} />
             </ProtectedRoute>

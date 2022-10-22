@@ -18,18 +18,20 @@ const NewActivity = (props) => {
   }
 
   return (
-    <main className={styles.container}>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name-input">Name</label>
+    <main className="">
+      <h1>New Activity</h1>
+      <form onSubmit={handleSubmit} autoComplete="off">
+      <div className="d-flex flex-column">
+        <label htmlFor="name-input">Name of Activity</label>
         <input
           required
           type="text"
           name="name"
           id="name-input"
           value={form.name}
-          placeholder="Name"
+          placeholder="...examples: Snorkeling off the beach / Food trucks on the main avenue "
           onChange={handleChange}
-        />
+          />
         <label htmlFor="description-input">Description</label>
 				<textarea
           required
@@ -37,9 +39,9 @@ const NewActivity = (props) => {
           name="description"
           id="description-input"
           value={form.description}
-          placeholder="Description"
+          placeholder="...tell us more about this activity, highlights, traveler tips..."
           onChange={handleChange}
-        />
+          />
         <label htmlFor="destination-input">Destination</label>
         <select
           required
@@ -47,13 +49,14 @@ const NewActivity = (props) => {
           id="destination-input"
           value={form.destination}
           onChange={handleChange}
-        >
+          >
           <option value="Atlanta">Atlanta</option>
           <option value="Boston">Boston</option>
           <option value="Dallas">Dallas</option>
           <option value="Miami">Miami</option>
         </select>
-        <button type="submit">SUBMIT</button>
+        <button className="btn btn-primary" type="submit">placeholder</button>
+      </div>
       </form>
     </main>
   )
