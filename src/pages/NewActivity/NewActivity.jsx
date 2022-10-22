@@ -1,8 +1,7 @@
 import { useState } from "react"
 import styles from './NewActivity.module.css'
-import { Link } from "react-router-dom"
 
-const NewActivity = (props) => {
+const NewActivity = ({handleAddActivity}) => {
   const [form, setForm] = useState({
     name: '',
     description: '',
@@ -15,7 +14,7 @@ const NewActivity = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-		// Update this line shortly...
+		handleAddActivity(form)
   }
 
   return (
@@ -56,7 +55,7 @@ const NewActivity = (props) => {
           <option value="Dallas">Dallas</option>
           <option value="Miami">Miami</option>
         </select>
-        <button className="" type="submit">placeholder</button>
+        <button className="" type="submit">Create</button>
       </form>
     </main>
   )
