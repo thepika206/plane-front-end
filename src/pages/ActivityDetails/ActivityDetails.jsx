@@ -4,7 +4,6 @@ import styles from './ActivityDetails.module.css'
 
 
 import * as activityService from '../../services/activityService'
-import * as tripService from '../../services/tripService'
 
 
 const ActivityDetails = (props) => {
@@ -13,7 +12,7 @@ const ActivityDetails = (props) => {
   const [userTrips, setUserTrips] = useState([])
   const [tripId, setTripId] = useState('')
   const [date,setDate] = useState('')
-  const [notes,setNotes] = useState('')
+  const [note,setNote] = useState('')
 
   const navigate = useNavigate()
 
@@ -29,11 +28,19 @@ const ActivityDetails = (props) => {
   useEffect(() => {
 
     const addUserTrips = async () => {
-      setUserTrips(props.trips.map(trip => trip.owner._id === props.user.profile ? trip : null))
-      setTripId(userTrips[0]._id)
+      const currentTrips = await props.trips
+      setUserTrips(currentTrips.map(trip => trip.owner._id === props.user.profile ? trip : null))
     }
     addUserTrips()
   }, [props.trips, props.user.profile])
+
+  useEffect(() => {
+    const addTripId = async() => {
+      const tripData = await userTrips[0]._id
+      setTripId(tripData)
+    }
+    addTripId()
+  }, [userTrips])
 
   const handleTripChange = e => {
     setTripId(e.target.value)
@@ -42,17 +49,17 @@ const ActivityDetails = (props) => {
     setDate(e.target.value)
   }
   const handleNotesChange = e => {
-    setNotes(e.target.value)
+    setNote(e.target.value)
   }
 
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      activity.notes = notes
+      activity.note = note
       activity.date = date
       activity.tripId = tripId
-      await tripService.addToTrip(activity)
-      navigate(`/trips/${tripId}`)
+      await activityService.addToTrip(activity)
+      navigate(`/activities`)
     } catch (error) {
       console.log(error)
     }
