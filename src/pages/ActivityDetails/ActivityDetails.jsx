@@ -12,6 +12,8 @@ const ActivityDetails = (props) => {
   const [activity, setActivity] = useState(null)
   const [userTrips, setUserTrips] = useState([])
   const [tripId, setTripId] = useState('')
+  const [date,setDate] = useState('')
+  const [notes,setNotes] = useState('')
 
   const navigate = useNavigate()
 
@@ -31,15 +33,23 @@ const ActivityDetails = (props) => {
       setTripId(userTrips[0]._id)
     }
     addUserTrips()
-  }, [props.trips,props.user.profile])
+  }, [props.trips, props.user.profile])
 
-  const handleChange = e => {
+  const handleTripChange = e => {
     setTripId(e.target.value)
+  }
+  const handleDateChange = e => {
+    setDate(e.target.value)
+  }
+  const handleNotesChange = e => {
+    setNotes(e.target.value)
   }
 
   const handleSubmit = async e => {
     e.preventDefault()
     try {
+      activity.notes = notes
+      activity.date = date
       activity.trip = tripId
       await tripService.addToTrip(activity)
       navigate(`/trips/${tripId}`)
@@ -64,11 +74,17 @@ const ActivityDetails = (props) => {
           <p>Time of Day: {activity.timeOfDay}</p>
 
           <form autoComplete="off" onSubmit={handleSubmit}>
-            <label htmlFor="tripName">Trip</label>
-            <select name="tripName" id="tripName" onChange={handleChange}>
-              {props.trips.map(trip => trip.owner._id === props.user.profile ? <option value={trip._id}>{trip.name}</option> : null)}
-            </select>
-            <button type="submit">Add to Trip</button>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="trip-date" onChange={handleDateChange} required/>
+
+            <label htmlFor="tripNotes">Activity Notes:</label>
+            <textarea name="tripNotes" id="tripNotes" cols="30" rows="10" onChange={handleNotesChange}></textarea>
+
+              <label htmlFor="tripName">Trip</label>
+              <select name="tripName" id="tripName" onChange={handleTripChange}>
+                {props.trips.map(trip => trip.owner._id === props.user.profile ? <option value={trip._id}>{trip.name}</option> : null)}
+              </select>
+              <button type="submit">Add to Trip</button>
           </form>
 
 
