@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import ActivityList from './pages/ActivityList/ActivityList'
+import NewActivity from './pages/NewActivity/NewActivity'
 import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 
 // components
@@ -39,6 +40,13 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
+  const handleAddActivity = async (activityData) => {
+    const newActivity = await activityService.create(activityData)
+    setActivities([...activities,newActivity])
+    navigate('/activities')
+  }
+
 
   useEffect(() => {
     const fetchAllActivities = async() => {
@@ -71,6 +79,19 @@ const App = () => {
         <Route
           path="/activities"
           element={<ActivityList activities={activities}/>}
+        />
+      
+        <Route
+          path="/activities/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewActivity handleAddActivity={handleAddActivity} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/activities/:id"
+          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
         />
         <Route
           path="/activities/:id"

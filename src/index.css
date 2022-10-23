@@ -6,6 +6,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-decoration: none;
+  
+  --primary: #4169e1;
+  --background: #f2f4f8;
+  --card-background: white;
+  --border: rgb(220, 220, 220);
 }
 
 code {
