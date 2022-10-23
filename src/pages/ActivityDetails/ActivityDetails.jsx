@@ -32,7 +32,7 @@ const ActivityDetails = (props) => {
       setUserTrips(currentTrips.map(trip => trip.owner._id === props.user.profile ? trip : null))
     }
     addUserTrips()
-  }, [props.trips, props.user.profile])
+  }, [props.trips, props.user?.profile])
 
   useEffect(() => {
     const addTripId = async() => {
@@ -79,8 +79,7 @@ const ActivityDetails = (props) => {
           <p>Destination: {activity.destination}</p>
           <p>Category: {activity.category}</p>
           <p>Time of Day: {activity.timeOfDay}</p>
-
-          <form autoComplete="off" onSubmit={handleSubmit}>
+          {props.user ?           <form autoComplete="off" onSubmit={handleSubmit}>
             <label for="date">Date:</label>
             <input type="date" id="date" name="trip-date" onChange={handleDateChange} required/>
 
@@ -89,19 +88,19 @@ const ActivityDetails = (props) => {
 
               <label htmlFor="tripName">Trip</label>
               <select name="tripName" id="tripName" onChange={handleTripChange}>
-                {props.trips.map(trip => trip.owner._id === props.user.profile ? <option value={trip._id}>{trip.name}</option> : null)}
+                {props.trips.map(trip => trip.owner._id === props.user?.profile ? <option value={trip._id}>{trip.name}</option> : null)}
               </select>
               <button type="submit">Add to Trip</button>
           </form>
-
-
-
-
+          :
+          <></>
+          }
 
         </div>
         <div className="reviewsSection">
           <h2>Reviews</h2>
-          <Link className="btn btn-primary">Add Review</Link>
+          {props.user ? <Link className="btn btn-primary">Add Review</Link>:<></>}
+
 
         </div>
       </div>
