@@ -11,6 +11,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import ActivityList from './pages/ActivityList/ActivityList'
 import NewActivity from './pages/NewActivity/NewActivity'
 import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
+import NewTrip from './pages/NewTrip/NewTrip'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -46,6 +47,8 @@ const App = () => {
     setActivities([...activities,newActivity])
     navigate('/activities')
   }
+
+
 
 
   useEffect(() => {
@@ -88,6 +91,23 @@ const App = () => {
               <NewActivity handleAddActivity={handleAddActivity} />
             </ProtectedRoute>
           }
+        />
+        
+        <Route 
+          path="/new-trip"
+          element={
+          <ProtectedRoute user={user}>
+            <NewTrip />
+          </ProtectedRoute>
+          } 
+        />
+        <Route
+          path="/activities/:id"
+          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
+        />
+        <Route
+          path="/activities/:id"
+          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
         />
         <Route
           path="/activities/:id"
