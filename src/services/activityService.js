@@ -13,6 +13,15 @@ const index = async() => {
   }
 }
 
+const show = async(id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`)
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const create = async (activityData) => {
   try {
     const res = await fetch(BASE_URL, {
@@ -28,8 +37,23 @@ const create = async (activityData) => {
     console.log(error)
   }
 }
+async function addToTrip(activity) {
+  try {
+    const res = await fetch(`${BASE_URL}/${activity._id}/activity-plan`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json',
+      'Authorization': `Bearer ${tokenService.getToken()}`},
+      body:JSON.stringify(activity),
+    })
+  return res.json()
+  } catch (err) {
+    throw err
+  }
+}
 
 export {
   index,
+  show,
   create,
+  addToTrip
 }

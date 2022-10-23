@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import ActivityList from './pages/ActivityList/ActivityList'
 import NewActivity from './pages/NewActivity/NewActivity'
+import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
 
 // components
@@ -19,6 +20,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as activityService from './services/activityService'
+import * as tripService from './services/tripService'
 
 // styles
 import './App.css'
@@ -26,6 +28,7 @@ import './App.css'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [activities, setActivities] = useState([])
+  const [trips,setTrips] = useState([])
 
   const navigate = useNavigate()
 
@@ -51,9 +54,16 @@ const App = () => {
   useEffect(() => {
     const fetchAllActivities = async() => {
       const activityData = await activityService.index()
+      // console.log(activityData)
       setActivities(activityData)
     }
+    const fetchTrips = async() => {
+      const tripData = await tripService.index()
+      // console.log(tripData)
+      setTrips(tripData)
+    }
     fetchAllActivities()
+    fetchTrips()
   },[])
 
   return (
@@ -73,7 +83,7 @@ const App = () => {
           path="/activities"
           element={<ActivityList activities={activities}/>}
         />
-        
+      
         <Route
           path="/activities/new"
           element={
@@ -82,6 +92,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        
         <Route 
           path="/new-trip"
           element={
@@ -89,6 +100,22 @@ const App = () => {
             <NewTrip />
           </ProtectedRoute>
           } 
+        />
+        <Route
+          path="/activities/:id"
+          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
+        />
+        <Route
+          path="/activities/:id"
+          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
+        />
+        <Route
+          path="/activities/:id"
+          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
+        />
+        <Route
+          path="/activities/:id"
+          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
         />
         <Route
           path="/profiles"

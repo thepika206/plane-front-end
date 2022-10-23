@@ -24,6 +24,7 @@ const NavBar = ({ user, handleLogout }) => {
             </ul>
             :
             <ul className='navbar-nav ms-auto text-center'>
+              <li className='nav-link'><Link to='/activities'>Activities</Link></li>
               <li className='nav-link'><Link to="/login">Log In</Link></li>
               <li className='nav-link'><Link to="/signup">Sign Up</Link></li>
             </ul>
