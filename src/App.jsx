@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import ActivityList from './pages/ActivityList/ActivityList'
 import NewActivity from './pages/NewActivity/NewActivity'
+import NewTrip from './pages/NewTrip/NewTrip'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -45,6 +46,8 @@ const App = () => {
   }
 
 
+
+
   useEffect(() => {
     const fetchAllActivities = async() => {
       const activityData = await activityService.index()
@@ -78,6 +81,14 @@ const App = () => {
               <NewActivity handleAddActivity={handleAddActivity} />
             </ProtectedRoute>
           }
+        />
+        <Route 
+          path="/new-trip"
+          element={
+          <ProtectedRoute user={user}>
+            <NewTrip />
+          </ProtectedRoute>
+          } 
         />
         <Route
           path="/profiles"
