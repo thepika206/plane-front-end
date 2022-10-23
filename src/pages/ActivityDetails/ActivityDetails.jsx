@@ -50,7 +50,7 @@ const ActivityDetails = (props) => {
     try {
       activity.notes = notes
       activity.date = date
-      activity.trip = tripId
+      activity.tripId = tripId
       await tripService.addToTrip(activity)
       navigate(`/trips/${tripId}`)
     } catch (error) {
