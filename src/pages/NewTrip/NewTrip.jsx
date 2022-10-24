@@ -9,9 +9,12 @@ const NewTrip = ({handleAddTrip}) => {
     endDate: '',
   })
 
+
+
   const handleChange = evt => {
     setForm({...form, [evt.target.name]: evt.target.value})
   }
+
 
   const handleSubmit = evt => {
     evt.preventDefault() 
@@ -52,14 +55,16 @@ const NewTrip = ({handleAddTrip}) => {
         onChange={handleChange}
         placeholder="...example: September 8th, 2023"
         />
-        <label htmlFor="private-input">Private To Other Users</label>
-        <input 
-        type="checkbox" 
-        name="private"
-        onChange={handleChange}
-        />
-        
-      
+        <label htmlFor="private-input">Private To You?</label>
+        <select 
+          name="private"
+          id="private-input"
+          value={form.private}
+          onChange={handleChange}
+        >
+          <option value="true">Private</option>
+          <option value="false">Public</option>
+        </select>
       <button type="submit">Create Trip</button>
     </form>
   </main>

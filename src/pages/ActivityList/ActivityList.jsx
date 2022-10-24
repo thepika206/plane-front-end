@@ -8,9 +8,10 @@ const ActivityList = (props) => {
     <div className={styles.allActivities}>
       <h1 className={styles.allActivitiesTitle}>All Activities</h1>
       <div className="">
-        <Link to='/activities/new'>
-          <button className="button-primary">New Activity</button>
-        </Link>
+        {props.user
+          ? <Link to='/activities/new'><button className="button-primary">New Activity</button></Link>
+          : <></>
+        }
       </div>
           
 
