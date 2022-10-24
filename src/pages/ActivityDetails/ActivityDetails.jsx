@@ -26,7 +26,6 @@ const ActivityDetails = (props) => {
   }, [id])
 
   useEffect(() => {
-
     const addUserTrips = async () => {
       const currentTrips = await props.trips
       setUserTrips(currentTrips.map(trip => trip.owner._id === props.user.profile ? trip : null))

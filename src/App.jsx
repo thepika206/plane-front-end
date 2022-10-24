@@ -52,9 +52,11 @@ const App = () => {
     navigate('/activities')
   }
   const handleAddReview = async(reviewData) => {
+    console.log('Reviwe line 1')
     const newReview = await activityService.createReview(reviewData)
+    console.log(reviewData)
     setReviews([...reviews,newReview])
-    navigate(`/activies/${reviewData.id}`)
+    navigate(`/activities/${reviewData.activity}`)
   }
 
   const handleAddTrip = async (tripData) => {

@@ -3,32 +3,39 @@ import { useState } from "react";
 import styles from './NewReview.module.css'
 
 
-const NewReview = () => {
+const NewReview = ({handleAddReview}) => {
   const { id } = useParams()
 
   const [form, setForm] = useState({
-    activity:id,
-    content:'',
-    recommended:true
+    activity: id,
+    content: '',
+    recommended: true
   })
 
   const handleChange = evt => {
-    setForm({...form, [evt.target.name]: evt.target.value})
+    setForm({ ...form, [evt.target.name]: evt.target.value })
   }
-  console.log(id)
   const handleSubmit = evt => {
     evt.preventDefault()
+    handleAddReview(form)
   }
   return (
     <main className={styles.container}>
-      <h1>Add Review to </h1>
+      <h1>Add Review</h1>
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <label htmlFor="private-input">Private To Other Users</label>
-        <input
-          type="checkbox"
-          name="private"
+        <label htmlFor="content">Content</label>
+        <textarea
+          required
+          type="text"
+          name="content"
+          id="content"
           onChange={handleChange}
         />
+        <label htmlFor="recommendation">Recommend</label>
+        <select name="recommendation" id="recommendation">
+          <option value={true}>Yes</option>
+          <option value={false}>No</option>
+        </select>
         <button type="submit">Create Trip</button>
       </form>
     </main>
