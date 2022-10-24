@@ -89,7 +89,7 @@ const NewActivity = ({handleAddActivity}) => {
           name="duration"
           id="duration-input"
           value={form.duration}
-          // placeholder=""
+          min="0"
           onChange={handleChange}
           className={styles.input}
           />
