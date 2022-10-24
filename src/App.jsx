@@ -92,7 +92,10 @@ const App = () => {
         />
         <Route
           path="/activities"
-          element={<ActivityList activities={activities}/>}
+          element={<ActivityList 
+            activities={activities}
+            user={user? user:''}
+          />}
         />
       
         <Route
@@ -102,6 +105,10 @@ const App = () => {
               <NewActivity handleAddActivity={handleAddActivity} />
             </ProtectedRoute>
           }
+        />
+        <Route
+          path="/activities/:id"
+          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
         />
         <Route
           path="/activities/:id/edit"
@@ -120,22 +127,7 @@ const App = () => {
           </ProtectedRoute>
           } 
         />
-        <Route
-          path="/activities/:id"
-          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
-        />
-        <Route
-          path="/activities/:id"
-          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
-        />
-        <Route
-          path="/activities/:id"
-          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
-        />
-        <Route
-          path="/activities/:id"
-          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
-        />
+
         <Route
           path="/trips/:id"
           element={<TripDetails  user={user} activities={activities}/>}
