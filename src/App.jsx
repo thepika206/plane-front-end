@@ -48,7 +48,11 @@ const App = () => {
     navigate('/activities')
   }
 
-
+  const handleAddTrip = async (tripData) => {
+    const newTrip = await tripService.create(tripData)
+    setActivities([...trips, newTrip])
+    navigate(`/trips/${newTrip._id}`)
+  }
 
 
   useEffect(() => {
@@ -97,7 +101,7 @@ const App = () => {
           path="/new-trip"
           element={
           <ProtectedRoute user={user}>
-            <NewTrip />
+            <NewTrip handleAddTrip={handleAddTrip}/>
           </ProtectedRoute>
           } 
         />

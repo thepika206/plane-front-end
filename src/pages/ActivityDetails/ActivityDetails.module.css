@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  color: #3A4856
 }
 .actDescBox {
   border: 1px solid black;
