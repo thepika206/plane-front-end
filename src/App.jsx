@@ -14,6 +14,7 @@ import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
 import TripDetails from './pages/TripDetails/TripDetails'
 import EditActivity from './pages/EditActivity/EditActivity'
+import AllTrips from './pages/AllTrips/AllTrips'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -68,13 +69,13 @@ const App = () => {
       // console.log(activityData)
       setActivities(activityData)
     }
-    const fetchTrips = async() => {
+    const fetchAllTrips = async() => {
       const tripData = await tripService.index()
       // console.log(tripData)
       setTrips(tripData)
     }
     fetchAllActivities()
-    fetchTrips()
+    fetchAllTrips()
   },[])
 
   return (
@@ -127,7 +128,14 @@ const App = () => {
           </ProtectedRoute>
           } 
         />
-
+        <Route
+          path="/all-trips"
+          element={
+            <ProtectedRoute user={user}>
+              <AllTrips trips={trips} />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/trips/:id"
           element={<TripDetails  user={user} activities={activities}/>}
