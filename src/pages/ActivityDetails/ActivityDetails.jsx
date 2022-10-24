@@ -4,6 +4,7 @@ import styles from './ActivityDetails.module.css'
 
 
 import * as activityService from '../../services/activityService'
+import ReviewCard from "../../components/ReviewCard/ReviewCard";
 
 
 const ActivityDetails = (props) => {
@@ -104,8 +105,10 @@ const ActivityDetails = (props) => {
         </div>
         <div className="reviewsSection">
           <h2>Reviews</h2>
+          {activity.reviews.map((review,idx) => 
+            <ReviewCard review={review}/>
+          )}
           {props.user ? <Link to={`/activities/${id}/reviews`} className="btn btn-primary">Add Review</Link>:<></>}
-
 
         </div>
       </div>
