@@ -12,6 +12,7 @@ import ActivityList from './pages/ActivityList/ActivityList'
 import NewActivity from './pages/NewActivity/NewActivity'
 import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
+import AllTrip from './pages/AllTrip/AllTrip'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -100,6 +101,14 @@ const App = () => {
             <NewTrip />
           </ProtectedRoute>
           } 
+        />
+          <Route
+          path="/all-trip"
+          element={
+            <ProtectedRoute user={user}>
+              <AllTrip />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/activities/:id"
