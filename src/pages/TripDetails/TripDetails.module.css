@@ -6,7 +6,9 @@ body {
   color: #3A4856;
 }
 
-
+.titleCard {
+  text-align: center;
+}
 
 .container {
   gap: 14px;

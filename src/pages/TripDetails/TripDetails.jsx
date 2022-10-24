@@ -1,7 +1,7 @@
 import styles from './TripDetails.module.css'
 import ActivityPlanCard from '../ActivityPlanCard/ActivityPlanCard'
 import * as tripService from '../../services/tripService'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 const TripDetails = (props) => {
@@ -23,6 +23,7 @@ useEffect(() => {
       <div className={styles.titleCard}>
         <h1>{trip.name}</h1>
         <h2>{trip.startDate} {' - '} {trip.endDate}</h2>
+        <Link to={`/trips/${id}/edit`} className="btn btn-warning">Edit Trip</Link>
       </div>
     </div>
     <div>
