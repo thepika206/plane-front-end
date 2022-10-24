@@ -24,7 +24,11 @@ const TripDetails = (props) => {
           <h1>{trip.name}</h1>
           <h2>{trip.startDate} {' - '} {trip.endDate}</h2>
           <h3>{trip.private ? 'Private' : ''}</h3>
-          <Link to={`/trips/${id}/edit`} className="btn btn-warning">Edit Trip</Link>
+          <div className={styles.buttonContainer}>
+            <Link to={`/trips/${id}/edit`} className="btn btn-warning">Edit Trip</Link>
+            <button className="btn btn-danger">Delete Trip</button>
+          </div>
+
         </div>
       </div>
       <div>
