@@ -6,7 +6,7 @@ const NewActivity = ({handleAddActivity}) => {
     name: '',
     description: '',
     destination: 'Atlanta',
-    duration: '',
+    duration: 1,
     timeOfDay: 'Daytime',
     cost: '$'
   })
