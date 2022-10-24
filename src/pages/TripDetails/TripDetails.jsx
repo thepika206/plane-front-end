@@ -1,4 +1,5 @@
 import styles from './TripDetails.module.css'
+import ActivityPlanCard from '../ActivityPlanCard/ActivityPlanCard'
 import * as tripService from '../../services/tripService'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
@@ -14,7 +15,7 @@ useEffect(() => {
   }
   fetchTrip()
 },[id])
-console.log(trip.activityPlans)
+
   return ( 
   <div className={styles.tripDetails}>
     <div className={styles.topRow}>
@@ -26,9 +27,9 @@ console.log(trip.activityPlans)
     </div>
     <div>
         <main className={styles.container}>
-          {props.activities.map(activity =>
+          {trip.activityPlans?.map(activityPlan =>
 
-            <ActivityPlanCard key={activity._id} activity={activity} />
+            <ActivityPlanCard key={activityPlan._id} activityPlan={activityPlan} activities={props.activities}/>
 
           )}
 

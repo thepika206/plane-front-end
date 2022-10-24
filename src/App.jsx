@@ -13,6 +13,7 @@ import NewActivity from './pages/NewActivity/NewActivity'
 import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
 import TripDetails from './pages/TripDetails/TripDetails'
+import EditActivity from './pages/EditActivity/EditActivity'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -49,8 +50,17 @@ const App = () => {
     navigate('/activities')
   }
 
+  const handleAddTrip = async (tripData) => {
+    const newTrip = await tripService.create(tripData)
+    setActivities([...trips, newTrip])
+    navigate(`/trips/${newTrip._id}`)
+  }
 
-
+  const handleUpdateActivity = async (activityData) => {
+    const updatedActivity = await activityService.update(activityData)
+    setActivities(activities.map((activity) => activityData._id === activity._id ? updatedActivity : activity))
+    navigate(`/activities/${activityData._id}`)
+  }
 
   useEffect(() => {
     const fetchAllActivities = async() => {
@@ -93,12 +103,20 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/activities/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditActivity handleUpdateActivity={handleUpdateActivity} />
+            </ProtectedRoute>
+          }
+        />
         
         <Route 
           path="/new-trip"
           element={
           <ProtectedRoute user={user}>
-            <NewTrip />
+            <NewTrip handleAddTrip={handleAddTrip}/>
           </ProtectedRoute>
           } 
         />
@@ -120,7 +138,7 @@ const App = () => {
         />
         <Route
           path="/trips/:id"
-          element={<TripDetails  user={user} />}
+          element={<TripDetails  user={user} activities={activities}/>}
         />
         <Route
           path="/profiles"
