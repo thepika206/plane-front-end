@@ -2,7 +2,7 @@ body {
   background: #9EADBD;
 }
 
-.allTripTitle {
+.allTripsTitle {
   color: #3A4856;
 }
 
@@ -36,6 +36,6 @@ body {
 h1 {
   font-size: 5vw;
 }
-.allTrip{
+.allTrips{
   text-align: center;
 }
