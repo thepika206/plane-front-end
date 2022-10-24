@@ -12,6 +12,7 @@ import ActivityList from './pages/ActivityList/ActivityList'
 import NewActivity from './pages/NewActivity/NewActivity'
 import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
+import EditActivity from './pages/EditActivity/EditActivity'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -54,6 +55,11 @@ const App = () => {
     navigate(`/trips/${newTrip._id}`)
   }
 
+  const handleUpdateActivity = async (activityData) => {
+    const updatedActivity = await activityService.update(activityData)
+    setActivities(activities.map((activity) => activityData._id === activity._id ? updatedActivity : activity))
+    navigate(`/activities/${activityData._id}`)
+  }
 
   useEffect(() => {
     const fetchAllActivities = async() => {
@@ -93,6 +99,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <NewActivity handleAddActivity={handleAddActivity} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/activities/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditActivity handleUpdateActivity={handleUpdateActivity} />
             </ProtectedRoute>
           }
         />
