@@ -49,12 +49,17 @@ const App = () => {
     navigate('/activities')
   }
 
-const handleUpdateActivity = async (activityData) => {
-  const updatedActivity = await activityService.update(activityData)
-  setActivities(activities.map((activity) => activityData._id === activity._id ? updatedActivity : activity))
-  navigate(`/activities/${activityData._id}`)
-}
+  const handleAddTrip = async (tripData) => {
+    const newTrip = await tripService.create(tripData)
+    setActivities([...trips, newTrip])
+    navigate(`/trips/${newTrip._id}`)
+  }
 
+  const handleUpdateActivity = async (activityData) => {
+    const updatedActivity = await activityService.update(activityData)
+    setActivities(activities.map((activity) => activityData._id === activity._id ? updatedActivity : activity))
+    navigate(`/activities/${activityData._id}`)
+  }
 
   useEffect(() => {
     const fetchAllActivities = async() => {
@@ -110,7 +115,7 @@ const handleUpdateActivity = async (activityData) => {
           path="/new-trip"
           element={
           <ProtectedRoute user={user}>
-            <NewTrip />
+            <NewTrip handleAddTrip={handleAddTrip}/>
           </ProtectedRoute>
           } 
         />
