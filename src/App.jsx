@@ -31,6 +31,7 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [activities, setActivities] = useState([])
   const [trips,setTrips] = useState([])
+  const [reviews,setReviews] = useState([])
 
   const navigate = useNavigate()
 
@@ -48,6 +49,11 @@ const App = () => {
     const newActivity = await activityService.create(activityData)
     setActivities([...activities,newActivity])
     navigate('/activities')
+  }
+  const handleAddReview = async(reviewData) => {
+    const newReview = await activityService.createReview(reviewData)
+    setReviews([...reviews,newReview])
+    navigate(`/activies/${reviewData.id}`)
   }
 
   const handleAddTrip = async (tripData) => {
@@ -100,6 +106,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <NewActivity handleAddActivity={handleAddActivity} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/activities/:id/reviews"
+          element={
+            <ProtectedRoute user={user}>
+              <NewReview handleAddReview={handleAddReview} />
             </ProtectedRoute>
           }
         />
