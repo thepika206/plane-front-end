@@ -13,9 +13,14 @@ const AllTrips = (props) => {
 
       <div>
         <main className={styles.container}>
-          {props.trips.map(activity =>
+          {props.trips.map(trip =>
+          <Link to={`/trips/${trip._id}`}>
+          <h4> 
+            {trip.name}
+          </h4>
 
-            <ActivityCard key={activity._id} activity={activity} />
+          </Link>
+
 
           )}
            
