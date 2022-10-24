@@ -12,7 +12,7 @@ import ActivityList from './pages/ActivityList/ActivityList'
 import NewActivity from './pages/NewActivity/NewActivity'
 import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
-import AllTrip from './pages/AllTrip/AllTrip'
+import AllTrips from './pages/AllTrips/AllTrips'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -58,13 +58,13 @@ const App = () => {
       // console.log(activityData)
       setActivities(activityData)
     }
-    const fetchTrips = async() => {
+    const fetchAllTrips = async() => {
       const tripData = await tripService.index()
       // console.log(tripData)
       setTrips(tripData)
     }
     fetchAllActivities()
-    fetchTrips()
+    fetchAllTrips()
   },[])
 
   return (
@@ -103,10 +103,10 @@ const App = () => {
           } 
         />
           <Route
-          path="/all-trip"
+          path="/all-trips"
           element={
             <ProtectedRoute user={user}>
-              <AllTrip />
+              <AllTrips trips={trips} />
             </ProtectedRoute>
           }
         />
