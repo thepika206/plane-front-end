@@ -23,7 +23,7 @@ const ActivityPlanCard = ({ activityPlan, activities }) => {
             <h2>{activityPlan?.date}</h2>
           </span>
         </header>
-        <p className={styles.text}>{activity?.description}</p>
+        <p className={styles.text}>{activityPlan?.note}</p>
         <div className={styles.activityButtons}>
           <Link className="btn btn-danger">Remove</Link>
           <Link className="btn btn-primary">Duplicate</Link>
