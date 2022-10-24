@@ -23,6 +23,7 @@ useEffect(() => {
       <div className={styles.titleCard}>
         <h1>{trip.name}</h1>
         <h2>{trip.startDate} {' - '} {trip.endDate}</h2>
+        <h3>{trip.private ? 'Private': ''}</h3>
         <Link to={`/trips/${id}/edit`} className="btn btn-warning">Edit Trip</Link>
       </div>
     </div>
