@@ -31,8 +31,8 @@ const NewReview = ({handleAddReview}) => {
           id="content"
           onChange={handleChange}
         />
-        <label htmlFor="recommendation">Recommend</label>
-        <select name="recommendation" id="recommendation">
+        <label htmlFor="recommended">Recommend</label>
+        <select name="recommended" id="recommended" onChange={handleChange}>
           <option value={true}>Yes</option>
           <option value={false}>No</option>
         </select>
