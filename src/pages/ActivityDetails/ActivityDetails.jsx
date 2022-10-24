@@ -105,7 +105,7 @@ const ActivityDetails = (props) => {
         </div>
         <div className="reviewsSection">
           <h2>Reviews</h2>
-          {props.user ? <Link className="btn btn-primary">Add Review</Link>:<></>}
+          {props.user ? <Link to={`/activities/${id}/createReview`} className="btn btn-primary">Add Review</Link>:<></>}
 
 
         </div>
