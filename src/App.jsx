@@ -12,6 +12,8 @@ import ActivityList from './pages/ActivityList/ActivityList'
 import NewActivity from './pages/NewActivity/NewActivity'
 import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
+import TripDetails from './pages/TripDetails/TripDetails'
+import EditActivity from './pages/EditActivity/EditActivity'
 import AllTrips from './pages/AllTrips/AllTrips'
 
 // components
@@ -49,8 +51,17 @@ const App = () => {
     navigate('/activities')
   }
 
+  const handleAddTrip = async (tripData) => {
+    const newTrip = await tripService.create(tripData)
+    setActivities([...trips, newTrip])
+    navigate(`/trips/${newTrip._id}`)
+  }
 
-
+  const handleUpdateActivity = async (activityData) => {
+    const updatedActivity = await activityService.update(activityData)
+    setActivities(activities.map((activity) => activityData._id === activity._id ? updatedActivity : activity))
+    navigate(`/activities/${activityData._id}`)
+  }
 
   useEffect(() => {
     const fetchAllActivities = async() => {
@@ -82,7 +93,10 @@ const App = () => {
         />
         <Route
           path="/activities"
-          element={<ActivityList activities={activities}/>}
+          element={<ActivityList 
+            activities={activities}
+            user={user? user:''}
+          />}
         />
       
         <Route
@@ -93,16 +107,28 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/activities/:id"
+          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
+        />
+        <Route
+          path="/activities/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditActivity handleUpdateActivity={handleUpdateActivity} />
+            </ProtectedRoute>
+          }
+        />
         
         <Route 
           path="/new-trip"
           element={
           <ProtectedRoute user={user}>
-            <NewTrip />
+            <NewTrip handleAddTrip={handleAddTrip}/>
           </ProtectedRoute>
           } 
         />
-          <Route
+        <Route
           path="/all-trips"
           element={
             <ProtectedRoute user={user}>
@@ -111,20 +137,8 @@ const App = () => {
           }
         />
         <Route
-          path="/activities/:id"
-          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
-        />
-        <Route
-          path="/activities/:id"
-          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
-        />
-        <Route
-          path="/activities/:id"
-          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
-        />
-        <Route
-          path="/activities/:id"
-          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
+          path="/trips/:id"
+          element={<TripDetails  user={user} activities={activities}/>}
         />
         <Route
           path="/profiles"
