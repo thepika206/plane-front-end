@@ -18,15 +18,15 @@ const NavBar = ({ user, handleLogout }) => {
             <ul className='navbar-nav ms-auto text-center'>
               <li className='nav-link'>Welcome, {user.name}</li>
               <li className='nav-link'><Link to='/activities'>Activities</Link></li>
-              <li className='nav-link'><Link to="/new-trip">New Trip</Link></li>
+              <li className='nav-link'><Link to='/trips/new'>New Trip</Link></li>
               <li className='nav-link'><Link to='/trips'>All Trips</Link></li>
-              <li className='nav-link'><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
+              <li className='nav-link'><Link to='' onClick={handleLogout}>LOG OUT</Link></li>
             </ul>
             :
             <ul className='navbar-nav ms-auto text-center'>
               <li className='nav-link'><Link to='/activities'>Activities</Link></li>
-              <li className='nav-link'><Link to="/login">Log In</Link></li>
-              <li className='nav-link'><Link to="/signup">Sign Up</Link></li>
+              <li className='nav-link'><Link to='/login'>Log In</Link></li>
+              <li className='nav-link'><Link to='/signup'>Sign Up</Link></li>
             </ul>
           }
         </div>
