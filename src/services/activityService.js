@@ -65,6 +65,20 @@ async function addToTrip(activity) {
     throw err
   }
 }
+async function createReview(review) {
+  // try {
+  //   // const res = await fetch(`${BASE_URL}/${activity._id}/activity-plan`, {
+  //   //   method: 'POST',
+  //   //   headers: { 'Content-Type': 'application/json',
+  //   //   'Authorization': `Bearer ${tokenService.getToken()}`},
+  //   //   body:JSON.stringify(activity),
+  //   console.log(review)
+  //   })
+  // return res.json()
+  // } catch (err) {
+  //   throw err
+  // }
+}
 
 export {
   index,
@@ -72,4 +86,5 @@ export {
   create,
   update,
   addToTrip,
+  createReview
 }

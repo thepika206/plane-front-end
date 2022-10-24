@@ -14,6 +14,7 @@ import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
 import TripDetails from './pages/TripDetails/TripDetails'
 import EditActivity from './pages/EditActivity/EditActivity'
+import NewReview from './pages/NewReview/NewReview'
 
 // components
 import NavBar from './components/NavBar/NavBar'
