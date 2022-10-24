@@ -11,8 +11,14 @@ const ActivityDetails = (props) => {
   const [activity, setActivity] = useState(null)
   const [userTrips, setUserTrips] = useState([])
   const [tripId, setTripId] = useState('')
-  const [date,setDate] = useState('')
-  const [note,setNote] = useState('')
+  const [form, setForm] = useState({
+    note:'',
+    date:'',
+  })
+
+  const handleChange = ({ target }) => {
+    setForm({ ...form, [target.name]: target.value })
+  }
 
   const navigate = useNavigate()
 
@@ -25,14 +31,14 @@ const ActivityDetails = (props) => {
     fetchActivity()
   }, [id])
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const addUserTrips = async () => {
-      const currentTrips = await props.trips
-      setUserTrips(currentTrips.map(trip => trip.owner._id === props.user.profile ? trip : null))
-    }
-    addUserTrips()
-  }, [props.trips, props.user?.profile])
+  //   const addUserTrips = async () => {
+  //     const currentTrips = await props.trips
+  //     setUserTrips(currentTrips.map(trip => trip.owner._id === props.user.profile ? trip : null))
+  //   }
+  //   addUserTrips()
+  // }, [props.trips, props.user?.profile])
 
   useEffect(() => {
     const addTripId = async() => {
@@ -42,23 +48,11 @@ const ActivityDetails = (props) => {
     addTripId()
   }, [userTrips])
 
-  const handleTripChange = e => {
-    setTripId(e.target.value)
-  }
-  const handleDateChange = e => {
-    setDate(e.target.value)
-  }
-  const handleNotesChange = e => {
-    setNote(e.target.value)
-  }
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      activity.note = note
-      activity.date = date
-      activity.tripId = tripId
-      await activityService.addToTrip(activity)
+      const newActivityPlan = await activityService.addToTrip(activity)
       navigate(`/trips/${tripId}`)
     } catch (error) {
       console.log(error)
@@ -87,13 +81,13 @@ const ActivityDetails = (props) => {
           <p>Time of Day: {activity.timeOfDay}</p>
           {props.user ?           <form autoComplete="off" onSubmit={handleSubmit}>
             <label htmlFor="date">Date:</label>
-            <input type="date" id="date" name="trip-date" onChange={handleDateChange} required/>
+            <input type="date" id="date" name="trip-date" onChange={handleChange} required/>
 
             <label htmlFor="tripNotes">Activity Notes:</label>
-            <textarea name="tripNotes" id="tripNotes" cols="30" rows="10" onChange={handleNotesChange}></textarea>
+            <textarea name="tripNotes" id="tripNotes" cols="30" rows="10" onChange={handleChange}></textarea>
 
               <label htmlFor="tripName">Trip</label>
-              <select name="tripName" id="tripName" onChange={handleTripChange}>
+              <select name="tripName" id="tripName" onChange={handleChange}>
                 {props.trips.map(trip => trip.owner._id === props.user?.profile ? <option value={trip._id}>{trip.name}</option> : null)}
               </select>
               <button type="submit">Add to Trip</button>
