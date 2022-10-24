@@ -67,9 +67,14 @@ const ActivityDetails = (props) => {
 
   if (!activity) return <h1>Loading...</h1>
 
+  console.log(props.user.profile, "props.profile")
+  console.log(activity.owner._id,"activity")
   return (
     <div className={styles.activityDetails}>
       <h1>Details: {activity.name}</h1>
+      {props.user.profile === activity.owner._id 
+        ? <Link><button>Edit Activity</button></Link> 
+        : <></> }
       <div className={styles.actDescBox}>
         <h2>Description</h2>
         <p>{activity.description}</p>
