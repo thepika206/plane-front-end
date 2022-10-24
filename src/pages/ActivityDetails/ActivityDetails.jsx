@@ -77,10 +77,11 @@ const ActivityDetails = (props) => {
       <div className={styles.bottomThird}>
         <div className="leftSide">
           <p>Destination: {activity.destination}</p>
-          <p>Category: {activity.category}</p>
+          <p>Cost: {activity.cost}</p>
+          <p>Duration: {activity.duration}</p>
           <p>Time of Day: {activity.timeOfDay}</p>
           {props.user ?           <form autoComplete="off" onSubmit={handleSubmit}>
-            <label for="date">Date:</label>
+            <label htmlFor="date">Date:</label>
             <input type="date" id="date" name="trip-date" onChange={handleDateChange} required/>
 
             <label htmlFor="tripNotes">Activity Notes:</label>
