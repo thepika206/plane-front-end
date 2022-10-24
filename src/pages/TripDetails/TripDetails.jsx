@@ -14,11 +14,26 @@ useEffect(() => {
   }
   fetchTrip()
 },[id])
+console.log(trip.activityPlans)
   return ( 
   <div className={styles.tripDetails}>
     <div className={styles.topRow}>
-      <p>Trips {'>'}  </p>
+      <p>Trips {'>'} {trip.name} </p>
+      <div className={styles.titleCard}>
+        <h1>{trip.name}</h1>
+        <h2>{trip.startDate} {' - '} {trip.endDate}</h2>
+      </div>
     </div>
+    <div>
+        <main className={styles.container}>
+          {props.activities.map(activity =>
+
+            <ActivityPlanCard key={activity._id} activity={activity} />
+
+          )}
+
+        </main>
+      </div>
   </div> );
 }
  
