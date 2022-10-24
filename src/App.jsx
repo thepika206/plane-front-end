@@ -146,7 +146,7 @@ const App = () => {
           } 
         />
         <Route
-          path="/all-trips"
+          path="/trips"
           element={
             <ProtectedRoute user={user}>
               <AllTrips trips={trips} />
