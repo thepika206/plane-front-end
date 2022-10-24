@@ -66,10 +66,25 @@ async function addToTrip(activity) {
   }
 }
 
+const createReview = async(reviewData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${reviewData.activity}/createReview`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json',
+      'Authorization': `Bearer ${tokenService.getToken()}`},
+      body:JSON.stringify(reviewData),
+    })
+  return res.json()
+  } catch (err) {
+    throw err
+  }
+}
+
 export {
   index,
   show,
   create,
   update,
   addToTrip,
+  createReview
 }
