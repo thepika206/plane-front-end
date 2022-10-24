@@ -29,9 +29,9 @@ useEffect(() => {
     </div>
     <div>
         <main className={styles.container}>
-          {trip.activityPlans?.map(activityPlan =>
+          {trip.activityPlans?.map((activityPlan,idx) =>
 
-            <ActivityPlanCard key={activityPlan._id} activityPlan={activityPlan} activities={props.activities}/>
+            <ActivityPlanCard key={idx} activityPlan={activityPlan} activities={props.activities}/>
 
           )}
 
