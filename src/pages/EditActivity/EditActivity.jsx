@@ -13,13 +13,13 @@ const EditActivity = ({handleUpdateActivity}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-		// handleUpdateActivity(form)
+		handleUpdateActivity(form)
   }
   
   return (
     <main className={styles.container}>
       <h1>Edit Activity</h1>
-      {/* <form onSubmit={handleSubmit} autoComplete="off">
+      <form onSubmit={handleSubmit} autoComplete="off">
         <label htmlFor="destination-input">Destination</label>
         <select
           required
@@ -89,8 +89,8 @@ const EditActivity = ({handleUpdateActivity}) => {
           onChange={handleChange}
           className={styles.input}
           />
-        <button className="" type="submit">Create</button>
-      </form> */}
+        <button className="" type="submit">Update Activity</button>
+      </form>
     </main>
   )
 }
