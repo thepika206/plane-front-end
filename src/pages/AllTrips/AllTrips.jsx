@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './AllTrips.module.css'
-import ActivityCard from '../../components/ActivityCard/ActivityCard';
+import AllTripsCard from '../../components/AllTripsCard/AllTripsCard';
 
 const AllTrips = (props) => {
   return (
@@ -12,18 +12,13 @@ const AllTrips = (props) => {
           
 
       <div>
+
         <main className={styles.container}>
           {props.trips.map(trip =>
-          <Link to={`/trips/${trip._id}`}>
-          <h4> 
-            {trip.name}
-          </h4>
 
-          </Link>
-
+            <AllTripsCard key={trip._id} trip={trip} />
 
           )}
-           
 
         </main>
       </div>
