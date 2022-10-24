@@ -12,6 +12,7 @@ import ActivityList from './pages/ActivityList/ActivityList'
 import NewActivity from './pages/NewActivity/NewActivity'
 import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
+import TripDetails from './pages/TripDetails/TripDetails'
 import EditActivity from './pages/EditActivity/EditActivity'
 
 // components
@@ -134,6 +135,10 @@ const App = () => {
         <Route
           path="/activities/:id"
           element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
+        />
+        <Route
+          path="/trips/:id"
+          element={<TripDetails  user={user} activities={activities}/>}
         />
         <Route
           path="/profiles"
