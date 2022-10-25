@@ -14,6 +14,7 @@ import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
 import TripDetails from './pages/TripDetails/TripDetails'
 import EditActivity from './pages/EditActivity/EditActivity'
+import EditTrip from './pages/EditTrip/EditTrip'
 import AllTrips from './pages/AllTrips/AllTrips'
 import NewReview from './pages/NewReview/NewReview'
 import MyTrips from './pages/MyTrips/MyTrips'
@@ -72,6 +73,12 @@ const App = () => {
     const updatedActivity = await activityService.update(activityData)
     setActivities(activities.map((activity) => activityData._id === activity._id ? updatedActivity : activity))
     navigate(`/activities/${activityData._id}`)
+  }
+  const handleUpdateTrip = async (tripData) => {
+    console.log('tripData', tripData)
+    const updatedTrip = await tripService.update(tripData)
+    setTrips(trips.map((trip) => tripData.id === trip._id ? updatedTrip : trip))
+    navigate(`/trips/${tripData.id}`)
   }
 
   useEffect(() => {
@@ -138,6 +145,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <EditActivity handleUpdateActivity={handleUpdateActivity} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/trips/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditTrip handleUpdateTrip={handleUpdateTrip} trips={trips} user={user? user:''} />
             </ProtectedRoute>
           }
         />

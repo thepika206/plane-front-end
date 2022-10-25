@@ -30,7 +30,7 @@ const TripDetails = (props) => {
           <h1>{trip.name}</h1>
           <h2>{trip.startDate} {' - '} {trip.endDate}</h2>
           <h3>{trip.private ? 'Private' : ''}</h3>
-          <Link to={`/trips/${id}/edit`} className="btn btn-warning">Edit Trip</Link>
+          <Link to={`/trips/${id}/edit`} state={trip} className="btn btn-warning">Edit Trip</Link>
         </div>
       </div>
       <div>
@@ -41,7 +41,7 @@ const TripDetails = (props) => {
               key={idx} 
               activityPlan={activityPlan} 
               activities={props.activities} 
-              tripId={id}
+              trip={trip}
               handleDeleteActivityPlan={handleDeleteActivityPlan}
               />
 

@@ -41,6 +41,7 @@ const ActivityDetails = (props) => {
   if (!activity) return <h1>Loading...</h1>
 
   return (
+    <main >
     <div className={styles.activityDetails}>
       <h1>Details: {activity.name}</h1>
       {props.user.profile === activity.owner._id 
@@ -86,6 +87,7 @@ const ActivityDetails = (props) => {
         </div>
       </div>
     </div>
+    </main>
   );
 }
 
