@@ -26,7 +26,6 @@ const ActivityPlanCard = ({ activityPlan, activities, handleDeleteActivityPlan, 
         <div className={styles.activityButtons}>
           <Link className="btn btn-primary" to={`/activities/${activityPlan.activity}`}>More Info</Link>
           <Link className="btn btn-danger" onClick={()=> handleDeleteActivityPlan(tripId, activityPlan._id) }>Remove</Link>
-          <Link className="btn btn-primary">Duplicate</Link>
         </div>
       </article>
 

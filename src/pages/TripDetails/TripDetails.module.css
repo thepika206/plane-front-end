@@ -46,3 +46,6 @@ h1 {
   display: flex;
   justify-content: center;
 }
+.buttonContainer a{
+  margin: auto 5px;
+  }
