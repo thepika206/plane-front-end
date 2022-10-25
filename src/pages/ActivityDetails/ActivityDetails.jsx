@@ -1,27 +1,19 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import styles from './ActivityDetails.module.css'
-
-
+//services
 import * as activityService from '../../services/activityService'
 
-
 const ActivityDetails = (props) => {
-  const { id } = useParams()
+  const { id } = useParams() 
   const [activity, setActivity] = useState(null)
-  const [userTrips, setUserTrips] = useState([])
-  const [tripId, setTripId] = useState('')
-  const [form, setForm] = useState({
+  const [form, setForm] = useState({ //form to add to user's trip 
     note:'',
     date:'',
+    tripId:'',
   })
 
-  const handleChange = ({ target }) => {
-    setForm({ ...form, [target.name]: target.value })
-  }
-
   const navigate = useNavigate()
-
 
   useEffect(() => {
     const fetchActivity = async () => {
@@ -31,29 +23,15 @@ const ActivityDetails = (props) => {
     fetchActivity()
   }, [id])
 
-  // useEffect(() => {
-
-  //   const addUserTrips = async () => {
-  //     const currentTrips = await props.trips
-  //     setUserTrips(currentTrips.map(trip => trip.owner._id === props.user.profile ? trip : null))
-  //   }
-  //   addUserTrips()
-  // }, [props.trips, props.user?.profile])
-
-  useEffect(() => {
-    const addTripId = async() => {
-      const tripData = await userTrips[0]._id
-      setTripId(tripData)
-    }
-    addTripId()
-  }, [userTrips])
-
+  const handleChangeForm = ({ target }) => {
+    setForm({ ...form, [target.name]: target.value })
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const newActivityPlan = await activityService.addToTrip(activity)
-      navigate(`/trips/${tripId}`)
+      await activityService.addToTrip(form, id)
+      navigate(`/trips/${form.tripId}`)
     } catch (error) {
       console.log(error)
     }
@@ -61,8 +39,6 @@ const ActivityDetails = (props) => {
 
   if (!activity) return <h1>Loading...</h1>
 
-  // console.log(props.user.profile, "props.profile")
-  // console.log(activity.owner._id,"activity")
   return (
     <div className={styles.activityDetails}>
       <h1>Details: {activity.name}</h1>
@@ -79,18 +55,20 @@ const ActivityDetails = (props) => {
           <p>Cost: {activity.cost}</p>
           <p>Duration: {activity.duration}</p>
           <p>Time of Day: {activity.timeOfDay}</p>
-          {props.user ?           <form autoComplete="off" onSubmit={handleSubmit}>
-            <label htmlFor="date">Date:</label>
-            <input type="date" id="date" name="trip-date" onChange={handleChange} required/>
-
-            <label htmlFor="tripNotes">Activity Notes:</label>
-            <textarea name="tripNotes" id="tripNotes" cols="30" rows="10" onChange={handleChange}></textarea>
-
-              <label htmlFor="tripName">Trip</label>
-              <select name="tripName" id="tripName" onChange={handleChange}>
-                {props.trips.map(trip => trip.owner._id === props.user?.profile ? <option value={trip._id}>{trip.name}</option> : null)}
+          {props.user ?<form autoComplete="off" onSubmit={handleSubmit}>
+            <label htmlFor="date-input">Date:
+              <input type="date" id="date-input" name="date" onChange={handleChangeForm} required/>
+            </label>
+            <label htmlFor="note-text-area">Activity Notes:
+              <textarea name="note" id="note-text-area" cols="30" rows="10" onChange={handleChangeForm}></textarea>
+            </label>
+            <label htmlFor="trip-select">Trip
+              <select name="tripId" id="trip-select" onChange={handleChangeForm} required>
+                <option value=''>Select Trip</option>
+                {props.trips.map((trip) => trip.owner._id === props.user?.profile ? <option key={trip._id} value={trip._id}>{trip.name}</option> : null)}
               </select>
-              <button type="submit">Add to Trip</button>
+            </label>
+            <button type="submit">Add to Trip</button>
           </form>
           :
           <></>
@@ -100,7 +78,6 @@ const ActivityDetails = (props) => {
         <div className="reviewsSection">
           <h2>Reviews</h2>
           {props.user ? <Link className="btn btn-primary">Add Review</Link>:<></>}
-
 
         </div>
       </div>
