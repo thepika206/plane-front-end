@@ -8,3 +8,7 @@
   width: 200px; 
   background: var(--primary);
 }
+
+.navbar-toggler{
+  width: auto;
+}
