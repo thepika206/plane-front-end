@@ -15,7 +15,6 @@ const ActivityPlanCard = ({ activityPlan, activities }) => {
   if (!activity) <h1>Loading</h1>
 
   return (
-    <Link to={`/activities/${activityPlan.activity}`}>
       <article className={styles.container}>
         <header className={styles.text}>
           <span>
@@ -25,12 +24,12 @@ const ActivityPlanCard = ({ activityPlan, activities }) => {
         </header>
         <p className={styles.text}>{activityPlan?.note}</p>
         <div className={styles.activityButtons}>
+          <Link className="btn btn-primary" to={`/activities/${activityPlan.activity}`}>More Info</Link>
           <Link className="btn btn-danger">Remove</Link>
           <Link className="btn btn-primary">Duplicate</Link>
         </div>
-
       </article>
-    </Link>
+
   );
 }
 

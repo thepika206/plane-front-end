@@ -138,7 +138,7 @@ const App = () => {
         />
         
         <Route 
-          path="/new-trip"
+          path="/trips/new"
           element={
           <ProtectedRoute user={user}>
             <NewTrip handleAddTrip={handleAddTrip}/>
@@ -146,7 +146,7 @@ const App = () => {
           } 
         />
         <Route
-          path="/all-trips"
+          path="/trips"
           element={
             <ProtectedRoute user={user}>
               <AllTrips trips={trips} />
