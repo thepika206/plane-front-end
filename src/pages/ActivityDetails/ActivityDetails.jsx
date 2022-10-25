@@ -48,15 +48,20 @@ const ActivityDetails = (props) => {
         ? <Link to={`/activities/${id}/edit`} state={activity}><button>Edit Activity</button></Link> 
         : <></> }
       <div className={styles.actDescBox}>
-        <h2>Description</h2>
-        <p>{activity.description}</p>
-      </div>
-      <div className={styles.bottomThird}>
-        <div className="leftSide">
+        <div className={styles.description}>
+          <h2>Description</h2>
+          <p>{activity.description}</p>
+        </div>
+        <div className={styles.details}>  
+          <h2>Details</h2>
           <p>Destination: {activity.destination}</p>
           <p>Cost: {activity.cost}</p>
           <p>Duration: {activity.duration}</p>
           <p>Time of Day: {activity.timeOfDay}</p>
+        </div>  
+      </div>
+      <div className={styles.bottomThird}>
+        <div className="leftSide">
           {props.user ?<form autoComplete="off" onSubmit={handleSubmit}>
             <label htmlFor="date-input">Date:
               <input type="date" id="date-input" name="date" onChange={handleChangeForm} required/>
@@ -75,13 +80,13 @@ const ActivityDetails = (props) => {
           :
           <></>
           }
-
         </div>
-        <div className="reviewsSection">
+        <div 
+          className={styles.reviewsSection} >
           <h2>Reviews</h2>
           {activity.reviews.map((review,idx) => 
-            <ReviewCard key={idx} review={review}/>
-          )}
+            <ReviewCard key={idx} review={review} owner={props.owner}/>
+            )}
           {props.user ? <Link to={`/activities/${id}/reviews`} className="btn btn-primary">Add Review</Link>:<></>}
 
         </div>
