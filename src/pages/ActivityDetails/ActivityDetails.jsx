@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import styles from './ActivityDetails.module.css'
 //services
 import * as activityService from '../../services/activityService'
+import ReviewCard from "../../components/ReviewCard/ReviewCard";
 
 const ActivityDetails = (props) => {
   const { id } = useParams() 
@@ -77,7 +78,10 @@ const ActivityDetails = (props) => {
         </div>
         <div className="reviewsSection">
           <h2>Reviews</h2>
-          {props.user ? <Link className="btn btn-primary">Add Review</Link>:<></>}
+          {activity.reviews.map((review,idx) => 
+            <ReviewCard review={review}/>
+          )}
+          {props.user ? <Link to={`/activities/${id}/reviews`} className="btn btn-primary">Add Review</Link>:<></>}
 
         </div>
       </div>
@@ -85,4 +89,4 @@ const ActivityDetails = (props) => {
   );
 }
 
-export default ActivityDetails;
+export default ActivityDetails
