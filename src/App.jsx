@@ -14,6 +14,7 @@ import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
 import TripDetails from './pages/TripDetails/TripDetails'
 import EditActivity from './pages/EditActivity/EditActivity'
+import EditTrip from './pages/EditTrip/EditTrip'
 import AllTrips from './pages/AllTrips/AllTrips'
 import NewReview from './pages/NewReview/NewReview'
 
@@ -73,6 +74,12 @@ const App = () => {
     await tripService.deleteTrip(tripId)
     setTrips(trips.filter((trip) => tripId !== trip._id))
     navigate('/trips')
+  }
+  const handleUpdateTrip = async (tripData) => {
+    console.log('tripData', tripData)
+    const updatedTrip = await tripService.update(tripData)
+    setTrips(trips.map((trip) => tripData.id === trip._id ? updatedTrip : trip))
+    navigate(`/trips/${tripData.id}`)
   }
 
   useEffect(() => {
@@ -136,6 +143,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <EditActivity handleUpdateActivity={handleUpdateActivity} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/trips/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditTrip handleUpdateTrip={handleUpdateTrip} trips={trips} user={user? user:''} />
             </ProtectedRoute>
           }
         />
