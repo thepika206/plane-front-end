@@ -23,7 +23,8 @@ const TripDetails = (props) => {
   }, [id])
 
   if (!trip) <h1>Loading</h1>
-
+  
+  if (trip.private && (props.user.profile !== trip.owner._id)){ return <h4>Sorry this trip is private to the trip owner</h4>}
   return (
     <div className={styles.tripDetails}>
       <div className={styles.topRow}>
