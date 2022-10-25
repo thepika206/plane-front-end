@@ -36,7 +36,7 @@ const NewReview = ({handleAddReview}) => {
           <option value={true}>Yes</option>
           <option value={false}>No</option>
         </select>
-        <button type="submit">Create Trip</button>
+        <button className="btn button-primary" type="submit">Create Review</button>
       </form>
     </main>
   );
