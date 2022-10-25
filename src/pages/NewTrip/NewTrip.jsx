@@ -33,7 +33,7 @@ const NewTrip = ({handleAddTrip}) => {
         id="name-input"
         value={form.name}
         onChange={handleChange}
-        placeholder="...examples: Boston Fun With Family / Weekend in Atlanta "
+        placeholder=" "
         />
       <label htmlFor="startDate-input">Start Date</label>
       <input

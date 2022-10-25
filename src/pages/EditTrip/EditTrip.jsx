@@ -8,10 +8,10 @@ const EditTrip = (props) => {
   console.log(id)
   const { state } = useLocation()
   const [form, setForm] = useState({
-    name: '',
-    startDate: '',
-    endDate: '',
-    private: '',
+    name: state.name,
+    startDate: state.startDate,
+    endDate: state.endDate,
+    private: state.private,
     id:state._id
   })
   console.log(state)
@@ -66,12 +66,12 @@ const EditTrip = (props) => {
           name="private"
           id="private-input"
           value={form.private}
-          onChange={handleChange}
+          onChange={handleChange} 
         >
           <option value="true">Private</option>
           <option value="false">Public</option>
         </select>
-      <button type="submit">Create Trip</button>
+      <button type="submit">Update Trip</button>
     </form>
   </main>
   )
