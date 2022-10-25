@@ -38,22 +38,22 @@ const NewTrip = ({handleAddTrip}) => {
       <label htmlFor="startDate-input">Start Date</label>
       <input
         required
-        type="text"
+        type="date"
         name="startDate"
         id="startDate-input"
         value={form.startDate}
         onChange={handleChange}
-        placeholder="...example: September 1st, 2023"
+        // placeholder="...example: September 1st, 2023"
         />
       <label htmlFor="endDate-input">End Date</label>
       <input
         required
-        type="text"
+        type="date"
         name="endDate"
         id="endDate-input"
         value={form.endDate}
         onChange={handleChange}
-        placeholder="...example: September 8th, 2023"
+        // placeholder="...example: September 8th, 2023"
         />
         <label htmlFor="private-input">Private To You?</label>
         <select 
