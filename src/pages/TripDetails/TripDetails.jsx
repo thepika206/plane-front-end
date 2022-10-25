@@ -23,7 +23,8 @@ const TripDetails = (props) => {
   }, [id])
 
   if (!trip) <h1>Loading</h1>
-
+  
+  if (trip.private && (props.user.profile !== trip.owner._id)){ return <h4>Sorry this trip is private to the trip owner</h4>}
   return (
     <div className={styles.tripDetails}>
       <div className={styles.topRow}>
@@ -31,7 +32,7 @@ const TripDetails = (props) => {
         <div className={styles.titleCard}>
           <h1>{trip.name}</h1>
           <h2>{trip.startDate} {' - '} {trip.endDate}</h2>
-          <h3>{trip.private ? 'Private' : ''}</h3>
+          <h3>Visibility Setting: {trip.private ? 'Private' : 'Public'}</h3>
 
           {props.user.profile === trip.owner?._id ?
             <div className={styles.buttonContainer}>
@@ -60,7 +61,8 @@ const TripDetails = (props) => {
 
         </main>
       </div>
-    </div>);
+    </div>
+  );
 }
 
 export default TripDetails;
