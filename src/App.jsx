@@ -1,6 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { Routes, Route, useNavigate} from 'react-router-dom'
 
 // page components
 import Signup from './pages/Signup/Signup'
@@ -33,7 +33,8 @@ import './App.css'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [activities, setActivities] = useState([])
-  const [trips,setTrips] = useState([])
+  const [trips, setTrips] = useState([])
+  const [userTrips, setUserTrips] = useState([])
   const [reviews,setReviews] = useState([])
 
   const navigate = useNavigate()
@@ -81,12 +82,15 @@ const App = () => {
     }
     const fetchAllTrips = async() => {
       const tripData = await tripService.index()
-      // console.log(tripData)
+      console.log(tripData)
+      const userTripData = tripData.filter(trip => trip.owner._id === user.profile)
+      console.log(userTripData)
       setTrips(tripData)
+      setUserTrips(userTripData)
     }
     fetchAllActivities()
     fetchAllTrips()
-  },[])
+  },[user.profile])
 
   return (
     <>
@@ -158,7 +162,7 @@ const App = () => {
           path="/trips/my-trips"
           element={
             <ProtectedRoute user={user}>
-              <MyTrips trips={trips} user={user}/>
+              <MyTrips trips={userTrips} user={user}/>
             </ProtectedRoute>
           }
         />
