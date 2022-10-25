@@ -1,6 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { Routes, Route, useNavigate} from 'react-router-dom'
 
 // page components
 import Signup from './pages/Signup/Signup'
@@ -14,8 +14,10 @@ import ActivityDetails from './pages/ActivityDetails/ActivityDetails'
 import NewTrip from './pages/NewTrip/NewTrip'
 import TripDetails from './pages/TripDetails/TripDetails'
 import EditActivity from './pages/EditActivity/EditActivity'
+import EditTrip from './pages/EditTrip/EditTrip'
 import AllTrips from './pages/AllTrips/AllTrips'
 import NewReview from './pages/NewReview/NewReview'
+import MyTrips from './pages/MyTrips/MyTrips'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -32,7 +34,8 @@ import './App.css'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [activities, setActivities] = useState([])
-  const [trips,setTrips] = useState([])
+  const [trips, setTrips] = useState([])
+  const [userTrips, setUserTrips] = useState([])
   const [reviews,setReviews] = useState([])
 
   const navigate = useNavigate()
@@ -53,9 +56,7 @@ const App = () => {
     navigate('/activities')
   }
   const handleAddReview = async(reviewData) => {
-    console.log('Reviwe line 1')
     const newReview = await activityService.createReview(reviewData)
-    console.log(reviewData)
     setReviews([...reviews,newReview])
     navigate(`/activities/${reviewData.activity}`)
   }
@@ -63,6 +64,7 @@ const App = () => {
   const handleAddTrip = async (tripData) => {
     const newTrip = await tripService.create(tripData)
     setTrips([newTrip, ...trips ])
+    setUserTrips([newTrip, ...userTrips ])
     navigate(`/trips/${newTrip._id}`)
   }
 
@@ -70,6 +72,19 @@ const App = () => {
     const updatedActivity = await activityService.update(activityData)
     setActivities(activities.map((activity) => activityData._id === activity._id ? updatedActivity : activity))
     navigate(`/activities/${activityData._id}`)
+  }
+  const handleDeleteTrip = async (tripId) => {
+    await tripService.deleteTrip(tripId)
+    setTrips(trips.filter((trip) => tripId !== trip._id))
+    setUserTrips(userTrips.filter((trip) => tripId !== trip._id))
+    navigate('/trips')
+  }
+  const handleUpdateTrip = async (tripData) => {
+    console.log('tripData', tripData)
+    const updatedTrip = await tripService.update(tripData)
+    setTrips(trips.map((trip) => tripData.id === trip._id ? updatedTrip : trip))
+    setUserTrips(userTrips.map((trip) => tripData.id === trip._id ? updatedTrip : trip))
+    navigate(`/trips/${tripData.id}`)
   }
 
   useEffect(() => {
@@ -81,11 +96,14 @@ const App = () => {
     const fetchAllTrips = async() => {
       const tripData = await tripService.index()
       // console.log(tripData)
+      const userTripData = tripData.filter(trip => trip.owner._id === user.profile)
+      // console.log(userTripData)
       setTrips(tripData)
+      setUserTrips(userTripData)
     }
     fetchAllActivities()
     fetchAllTrips()
-  },[])
+  },[user.profile])
 
   return (
     <>
@@ -136,6 +154,14 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/trips/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditTrip handleUpdateTrip={handleUpdateTrip} trips={trips} user={user? user:''} />
+            </ProtectedRoute>
+          }
+        />
         
         <Route 
           path="/trips/new"
@@ -154,8 +180,16 @@ const App = () => {
           }
         />
         <Route
+          path="/trips/my-trips"
+          element={
+            <ProtectedRoute user={user}>
+              <MyTrips trips={userTrips} user={user}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/trips/:id"
-          element={<TripDetails  user={user} activities={activities}/>}
+          element={<TripDetails  user={user} activities={activities} handleDeleteTrip={handleDeleteTrip}/>}
         />
         <Route
           path="/profiles"

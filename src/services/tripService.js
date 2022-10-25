@@ -54,9 +54,43 @@ const deleteActivityPlan = async (id, activityPlanId) => {
   }
 }
 
+const deleteTrip = async(id) =>{
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`, 
+    {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+console.log(error)
+  }
+}
+
+const update = async (tripData) => {
+  console.log(tripData)
+  try {
+    const res = await fetch(`${BASE_URL}/${tripData.id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(tripData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   index,
   show,
   create,
-  deleteActivityPlan
+  deleteActivityPlan,
+  deleteTrip,
+  update,
 }
