@@ -40,9 +40,9 @@ const create = async (tripData) => {
   }
 }
 
-const deleteActivityPlan = async (tripId, activityPlanId) => {
+const deleteActivityPlan = async (id, activityPlanId) => {
   try {
-    const res = await fetch(`${BASE_URL}/${tripId}/activityPlans/${activityPlanId}`, {
+    const res = await fetch(`${BASE_URL}/${id}/activityPlans/${activityPlanId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`

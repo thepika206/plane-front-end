@@ -25,10 +25,8 @@ const ActivityPlanCard = ({ activityPlan, activities, handleDeleteActivityPlan, 
         </header>
         <p className={styles.text}>{activityPlan?.note}</p>
         <div className={styles.activityButtons}>
-          <Link>
-            <button className="btn btn-danger" onClick={()=> handleDeleteActivityPlan(tripId, activityPlan._id)}>
-              Remove
-            </button>
+          <Link className="btn btn-danger" onClick={()=> handleDeleteActivityPlan(tripId, activityPlan._id)}>
+            Remove
           </Link>
           <Link className="btn btn-primary">Duplicate</Link>
         </div>
