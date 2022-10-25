@@ -79,7 +79,7 @@ const ActivityDetails = (props) => {
         <div className="reviewsSection">
           <h2>Reviews</h2>
           {activity.reviews.map((review,idx) => 
-            <ReviewCard review={review}/>
+            <ReviewCard key={idx} review={review}/>
           )}
           {props.user ? <Link to={`/activities/${id}/reviews`} className="btn btn-primary">Add Review</Link>:<></>}
 
