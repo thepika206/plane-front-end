@@ -63,7 +63,7 @@ const App = () => {
 
   const handleAddTrip = async (tripData) => {
     const newTrip = await tripService.create(tripData)
-    setActivities([...trips, newTrip])
+    setTrips([newTrip, ...trips ])
     navigate(`/trips/${newTrip._id}`)
   }
 
@@ -127,7 +127,7 @@ const App = () => {
         />
         <Route
           path="/activities/:id"
-          element={<ActivityDetails activities={activities} user={user} trips={trips}/>}
+          element={<ActivityDetails activities={activities} user={user? user:''} trips={trips}/>}
         />
         <Route
           path="/activities/:id/edit"
