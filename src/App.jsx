@@ -1,6 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { Routes, Route, useNavigate} from 'react-router-dom'
 
 // page components
 import Signup from './pages/Signup/Signup'
@@ -17,6 +17,7 @@ import EditActivity from './pages/EditActivity/EditActivity'
 import EditTrip from './pages/EditTrip/EditTrip'
 import AllTrips from './pages/AllTrips/AllTrips'
 import NewReview from './pages/NewReview/NewReview'
+import MyTrips from './pages/MyTrips/MyTrips'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -33,7 +34,8 @@ import './App.css'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [activities, setActivities] = useState([])
-  const [trips,setTrips] = useState([])
+  const [trips, setTrips] = useState([])
+  const [userTrips, setUserTrips] = useState([])
   const [reviews,setReviews] = useState([])
 
   const navigate = useNavigate()
@@ -62,6 +64,7 @@ const App = () => {
   const handleAddTrip = async (tripData) => {
     const newTrip = await tripService.create(tripData)
     setTrips([newTrip, ...trips ])
+    setUserTrips([newTrip, ...userTrips ])
     navigate(`/trips/${newTrip._id}`)
   }
 
@@ -73,12 +76,14 @@ const App = () => {
   const handleDeleteTrip = async (tripId) => {
     await tripService.deleteTrip(tripId)
     setTrips(trips.filter((trip) => tripId !== trip._id))
+    setUserTrips(userTrips.filter((trip) => tripId !== trip._id))
     navigate('/trips')
   }
   const handleUpdateTrip = async (tripData) => {
     console.log('tripData', tripData)
     const updatedTrip = await tripService.update(tripData)
     setTrips(trips.map((trip) => tripData.id === trip._id ? updatedTrip : trip))
+    setUserTrips(userTrips.map((trip) => tripData.id === trip._id ? updatedTrip : trip))
     navigate(`/trips/${tripData.id}`)
   }
 
@@ -91,11 +96,14 @@ const App = () => {
     const fetchAllTrips = async() => {
       const tripData = await tripService.index()
       // console.log(tripData)
+      const userTripData = tripData.filter(trip => trip.owner._id === user.profile)
+      // console.log(userTripData)
       setTrips(tripData)
+      setUserTrips(userTripData)
     }
     fetchAllActivities()
     fetchAllTrips()
-  },[])
+  },[user.profile])
 
   return (
     <>
@@ -168,6 +176,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <AllTrips trips={trips} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/trips/my-trips"
+          element={
+            <ProtectedRoute user={user}>
+              <MyTrips trips={userTrips} user={user}/>
             </ProtectedRoute>
           }
         />
