@@ -12,9 +12,11 @@ main {
 .actDescBox {
   border: 1px solid black;
   margin: 5vh auto;
-  width: 40vw;
+  width: 75vw;
   height: 30vh;
 }
+
+
 
 .bottomThird > * {
   margin: auto 5vh;
@@ -22,11 +24,32 @@ main {
 
 @media only screen and (min-width: 781px){
 
+  .actDescBox {
+    display:flex;
+    flex-direction: row;
+    border: 1px solid black;
+    margin: 5vh auto;
+    width: 75vw;
+    height: 30vh;
+  }
+  
+  .description{
+    width: 60vw;
+  }
+  
+  .details {
+    width: 40vw;
+  }
+
   .bottomThird {
     display: flex;
     flex-direction: row;
   }
-  
+  .reviewsSection {
+    height: 500px;
+    width: 100%;
+    overflow-y: scroll;
+  }
   .bottomThird > * {
     margin: auto 10vh;
   }
