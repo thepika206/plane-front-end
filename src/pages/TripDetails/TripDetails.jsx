@@ -60,7 +60,8 @@ const TripDetails = (props) => {
 
         </main>
       </div>
-    </div>);
+    </div>
+  );
 }
 
 export default TripDetails;
