@@ -3,22 +3,15 @@ import ActivityPlanCard from '../../components/ActivityPlanCard/ActivityPlanCard
 import * as tripService from '../../services/tripService'
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 const TripDetails = (props) => {
   const { id } = useParams()
   const [trip, setTrip] = useState({})
-  const navigate = useNavigate()
 
   const handleDeleteActivityPlan = async (tripId, activityPlanId) => {
     console.log(tripId, activityPlanId)
     await tripService.deleteActivityPlan(tripId, activityPlanId)
     setTrip({ ...trip, activityPlans: trip.activityPlans.filter((a) => a._id !== activityPlanId) })
-  }
-  const handleDeleteTrip = async (tripId) => {
-
-    await tripService.deleteTrip(tripId)
-    navigate('/trips')
   }
 
   useEffect(() => {
@@ -43,12 +36,12 @@ const TripDetails = (props) => {
           {props.user.profile === trip.owner?._id ?
             <div className={styles.buttonContainer}>
               <Link to={`/trips/${id}/edit`} ><button className="btn btn-warning">Edit Trip</button></Link>
-              <Link><button className="btn btn-danger" onClick={() => handleDeleteTrip(id)}>Delete Trip</button></Link>
+              <Link><button className="btn btn-danger" onClick={() => props.handleDeleteTrip(id)}>Delete Trip</button></Link>
             </div>
             :
             <></>
           }
-          
+
         </div>
       </div>
       <div>

@@ -15,7 +15,7 @@ const AllTrips = (props) => {
         <main className={styles.container}>
           {props.trips.map(trip =>
 
-            <AllTripsCard key={trip._id} trip={trip} />
+            <AllTripsCard key={trip?._id} trip={trip} />
 
           )}
 
