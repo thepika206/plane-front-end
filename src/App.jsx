@@ -76,6 +76,7 @@ const App = () => {
   const handleDeleteTrip = async (tripId) => {
     await tripService.deleteTrip(tripId)
     setTrips(trips.filter((trip) => tripId !== trip._id))
+    setUserTrips(userTrips.filter((trip) => tripId !== trip._id))
     navigate('/trips')
   }
   const handleUpdateTrip = async (tripData) => {
