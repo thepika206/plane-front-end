@@ -15,7 +15,7 @@ const TripDetails = (props) => {
     await tripService.deleteActivityPlan(tripId, activityPlanId)
     setTrip({ ...trip, activityPlans: trip.activityPlans.filter((a) => a._id !== activityPlanId) })
   }
-  const handleDeleteTrip = async(tripId) => {
+  const handleDeleteTrip = async (tripId) => {
 
     await tripService.deleteTrip(tripId)
     navigate('/trips')
@@ -29,6 +29,8 @@ const TripDetails = (props) => {
     fetchTrip()
   }, [id])
 
+  if (!trip) <h1>Loading</h1>
+
   return (
     <div className={styles.tripDetails}>
       <div className={styles.topRow}>
@@ -37,24 +39,29 @@ const TripDetails = (props) => {
           <h1>{trip.name}</h1>
           <h2>{trip.startDate} {' - '} {trip.endDate}</h2>
           <h3>{trip.private ? 'Private' : ''}</h3>
-          <div className={styles.buttonContainer}>
-            <Link to={`/trips/${id}/edit`} className="btn btn-warning">Edit Trip</Link>
-            <button className="btn btn-danger" onClick={() => handleDeleteTrip(id)}>Delete Trip</button>
-          </div>
 
+          {props.user.profile === trip.owner?._id ?
+            <div className={styles.buttonContainer}>
+              <Link to={`/trips/${id}/edit`} ><button className="btn btn-warning">Edit Trip</button></Link>
+              <Link><button className="btn btn-danger" onClick={() => handleDeleteTrip(id)}>Delete Trip</button></Link>
+            </div>
+            :
+            <></>
+          }
+          
         </div>
       </div>
       <div>
         <main className={styles.container}>
           {trip.activityPlans?.map((activityPlan, idx) =>
 
-            <ActivityPlanCard 
-              key={idx} 
-              activityPlan={activityPlan} 
-              activities={props.activities} 
+            <ActivityPlanCard
+              key={idx}
+              activityPlan={activityPlan}
+              activities={props.activities}
               tripId={id}
               handleDeleteActivityPlan={handleDeleteActivityPlan}
-              />
+            />
 
           )}
 

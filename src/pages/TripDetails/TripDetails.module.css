@@ -41,3 +41,8 @@ h1 {
 .allActivities{
   text-align: center;
 }
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
