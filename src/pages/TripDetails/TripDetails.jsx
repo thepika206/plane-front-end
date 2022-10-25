@@ -9,6 +9,7 @@ const TripDetails = (props) => {
   const [trip, setTrip] = useState({})
 
   const handleDeleteActivityPlan = async (tripId, activityPlanId) => {
+    console.log(tripId, activityPlanId)
     await tripService.deleteActivityPlan(tripId, activityPlanId)
     setTrip({ ...trip, activityPlans: trip.activityPlans.filter((a) => a._id !== activityPlanId) })
   }
@@ -40,6 +41,7 @@ const TripDetails = (props) => {
               key={idx} 
               activityPlan={activityPlan} 
               activities={props.activities} 
+              tripId={id}
               handleDeleteActivityPlan={handleDeleteActivityPlan}
               />
 
