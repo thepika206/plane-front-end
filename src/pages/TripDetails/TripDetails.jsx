@@ -31,7 +31,7 @@ const TripDetails = (props) => {
         <div className={styles.titleCard}>
           <h1>{trip.name}</h1>
           <h2>{trip.startDate} {' - '} {trip.endDate}</h2>
-          <h3>{trip.private ? 'Private' : ''}</h3>
+          <h3>Visibility Setting: {trip.private ? 'Private' : 'Public'}</h3>
 
           {props.user.profile === trip.owner?._id ?
             <div className={styles.buttonContainer}>
