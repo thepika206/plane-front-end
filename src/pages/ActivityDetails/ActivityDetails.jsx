@@ -75,7 +75,6 @@ const ActivityDetails = (props) => {
           :
           <></>
           }
-
         </div>
         <div className="reviewsSection">
           <h2>Reviews</h2>
