@@ -16,6 +16,7 @@ import TripDetails from './pages/TripDetails/TripDetails'
 import EditActivity from './pages/EditActivity/EditActivity'
 import AllTrips from './pages/AllTrips/AllTrips'
 import NewReview from './pages/NewReview/NewReview'
+import MyTrips from './pages/MyTrips/MyTrips'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -150,6 +151,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <AllTrips trips={trips} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/trips/my-trips"
+          element={
+            <ProtectedRoute user={user}>
+              <MyTrips trips={trips} user={user}/>
             </ProtectedRoute>
           }
         />
