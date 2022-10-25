@@ -62,7 +62,7 @@ const App = () => {
 
   const handleAddTrip = async (tripData) => {
     const newTrip = await tripService.create(tripData)
-    setActivities([...trips, newTrip])
+    setTrips([...trips, newTrip])
     navigate(`/trips/${newTrip._id}`)
   }
 
