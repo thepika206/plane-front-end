@@ -66,6 +66,7 @@ const App = () => {
   const handleAddTrip = async (tripData) => {
     const newTrip = await tripService.create(tripData)
     setTrips([newTrip, ...trips ])
+    setUserTrips([newTrip, ...userTrips ])
     navigate(`/trips/${newTrip._id}`)
   }
 
@@ -89,9 +90,9 @@ const App = () => {
     }
     const fetchAllTrips = async() => {
       const tripData = await tripService.index()
-      console.log(tripData)
+      // console.log(tripData)
       const userTripData = tripData.filter(trip => trip.owner._id === user.profile)
-      console.log(userTripData)
+      // console.log(userTripData)
       setTrips(tripData)
       setUserTrips(userTripData)
     }
