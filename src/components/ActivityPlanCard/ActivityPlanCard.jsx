@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from './ActivityPlanCard.module.css'
-const ActivityPlanCard = ({ activityPlan, activities }) => {
+const ActivityPlanCard = ({ activityPlan, activities, handleDeleteActivityPlan, tripId}) => {
   const [activity, setActivity] = useState([])
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const ActivityPlanCard = ({ activityPlan, activities }) => {
         <p className={styles.text}>{activityPlan?.note}</p>
         <div className={styles.activityButtons}>
           <Link className="btn btn-primary" to={`/activities/${activityPlan.activity}`}>More Info</Link>
-          <Link className="btn btn-danger">Remove</Link>
+          <Link className="btn btn-danger" onClick={()=> handleDeleteActivityPlan(tripId, activityPlan._id) }>Remove</Link>
           <Link className="btn btn-primary">Duplicate</Link>
         </div>
       </article>

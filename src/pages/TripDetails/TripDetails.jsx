@@ -8,6 +8,12 @@ const TripDetails = (props) => {
   const { id } = useParams()
   const [trip, setTrip] = useState({})
 
+  const handleDeleteActivityPlan = async (tripId, activityPlanId) => {
+    console.log(tripId, activityPlanId)
+    await tripService.deleteActivityPlan(tripId, activityPlanId)
+    setTrip({ ...trip, activityPlans: trip.activityPlans.filter((a) => a._id !== activityPlanId) })
+  }
+
   useEffect(() => {
     const fetchTrip = async () => {
       const tripData = await tripService.show(id)
@@ -35,7 +41,13 @@ const TripDetails = (props) => {
         <main className={styles.container}>
           {trip.activityPlans?.map((activityPlan, idx) =>
 
-            <ActivityPlanCard key={idx} activityPlan={activityPlan} activities={props.activities} />
+            <ActivityPlanCard 
+              key={idx} 
+              activityPlan={activityPlan} 
+              activities={props.activities} 
+              tripId={id}
+              handleDeleteActivityPlan={handleDeleteActivityPlan}
+              />
 
           )}
 
