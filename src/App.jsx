@@ -103,7 +103,7 @@ const App = () => {
     }
     fetchAllActivities()
     fetchAllTrips()
-  },[user.profile])
+  },[user?.profile])
 
   return (
     <>
