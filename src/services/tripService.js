@@ -54,9 +54,14 @@ const deleteActivityPlan = async (id, activityPlanId) => {
   }
 }
 
+const deleteTrip = async(id) =>{
+  console.log(id)
+}
+
 export {
   index,
   show,
   create,
-  deleteActivityPlan
+  deleteActivityPlan,
+  deleteTrip
 }
