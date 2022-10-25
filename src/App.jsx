@@ -79,6 +79,7 @@ const App = () => {
     console.log('tripData', tripData)
     const updatedTrip = await tripService.update(tripData)
     setTrips(trips.map((trip) => tripData.id === trip._id ? updatedTrip : trip))
+    setUserTrips(userTrips.map((trip) => tripData.id === trip._id ? updatedTrip : trip))
     navigate(`/trips/${tripData.id}`)
   }
 
