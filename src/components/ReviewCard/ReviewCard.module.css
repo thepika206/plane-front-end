@@ -1,0 +1,16 @@
+.reviewCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.recommend {
+  font-weight: bold
+}
+
+.yes {
+  color: green;
+}
+
+.no {
+  color: darkred;
+}
