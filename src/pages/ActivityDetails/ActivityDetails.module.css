@@ -26,9 +26,9 @@ main {
     display: flex;
     flex-direction: row;
   }
-
+  
   .bottomThird > * {
-    margin: auto 20vh;
+    margin: auto 10vh;
   }
 
 }
