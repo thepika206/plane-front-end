@@ -8,10 +8,10 @@ const EditTrip = (props) => {
   console.log(id)
   const { state } = useLocation()
   const [form, setForm] = useState({
-    name: '',
-    startDate: '',
-    endDate: '',
-    private: '',
+    name: state.name,
+    startDate: state.startDate,
+    endDate: state.endDate,
+    private: state.private,
     id:state._id
   })
   console.log(state)
