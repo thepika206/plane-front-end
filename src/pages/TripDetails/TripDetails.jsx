@@ -22,6 +22,8 @@ const TripDetails = (props) => {
     fetchTrip()
   }, [id])
 
+  if (!trip) <h1>Loading</h1>
+
   return (
     <div className={styles.tripDetails}>
       <div className={styles.topRow}>
@@ -30,20 +32,29 @@ const TripDetails = (props) => {
           <h1>{trip.name}</h1>
           <h2>{trip.startDate} {' - '} {trip.endDate}</h2>
           <h3>{trip.private ? 'Private' : ''}</h3>
-          <Link to={`/trips/${id}/edit`} state={trip} className="btn btn-warning">Edit Trip</Link>
+
+          {props.user.profile === trip.owner?._id ?
+            <div className={styles.buttonContainer}>
+              <Link to={`/trips/${id}/edit`} state={trip} className="btn btn-warning">Edit Trip</Link>
+              <Link><button className="btn btn-danger" onClick={() => props.handleDeleteTrip(id)}>Delete Trip</button></Link>
+            </div>
+            :
+            <></>
+          }
+
         </div>
       </div>
       <div>
         <main className={styles.container}>
           {trip.activityPlans?.map((activityPlan, idx) =>
 
-            <ActivityPlanCard 
-              key={idx} 
-              activityPlan={activityPlan} 
-              activities={props.activities} 
-              trip={trip}
+            <ActivityPlanCard
+              key={idx}
+              activityPlan={activityPlan}
+              activities={props.activities}
+              tripId={id}
               handleDeleteActivityPlan={handleDeleteActivityPlan}
-              />
+            />
 
           )}
 

@@ -54,9 +54,7 @@ const App = () => {
     navigate('/activities')
   }
   const handleAddReview = async(reviewData) => {
-    console.log('Reviwe line 1')
     const newReview = await activityService.createReview(reviewData)
-    console.log(reviewData)
     setReviews([...reviews,newReview])
     navigate(`/activities/${reviewData.activity}`)
   }
@@ -71,6 +69,11 @@ const App = () => {
     const updatedActivity = await activityService.update(activityData)
     setActivities(activities.map((activity) => activityData._id === activity._id ? updatedActivity : activity))
     navigate(`/activities/${activityData._id}`)
+  }
+  const handleDeleteTrip = async (tripId) => {
+    await tripService.deleteTrip(tripId)
+    setTrips(trips.filter((trip) => tripId !== trip._id))
+    navigate('/trips')
   }
   const handleUpdateTrip = async (tripData) => {
     console.log('tripData', tripData)
@@ -170,7 +173,7 @@ const App = () => {
         />
         <Route
           path="/trips/:id"
-          element={<TripDetails  user={user} activities={activities}/>}
+          element={<TripDetails  user={user} activities={activities} handleDeleteTrip={handleDeleteTrip}/>}
         />
         <Route
           path="/profiles"
