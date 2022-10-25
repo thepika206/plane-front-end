@@ -52,13 +52,13 @@ const update = async (activityData) => {
     console.log(error)
   }
 }
-async function addToTrip(activity) {
+async function addToTrip(form, id) {
   try {
-    const res = await fetch(`${BASE_URL}/${activity._id}/activity-plan`, {
+    const res = await fetch(`${BASE_URL}/${id}/activity-plan`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json',
       'Authorization': `Bearer ${tokenService.getToken()}`},
-      body:JSON.stringify(activity),
+      body:JSON.stringify(form),
     })
   return res.json()
   } catch (err) {
