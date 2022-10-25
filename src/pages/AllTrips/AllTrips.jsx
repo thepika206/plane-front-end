@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styles from './AllTrips.module.css'
 import AllTripsCard from '../../components/AllTripsCard/AllTripsCard';
 
