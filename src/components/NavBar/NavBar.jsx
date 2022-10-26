@@ -5,9 +5,9 @@ const NavBar = ({ user, handleLogout }) => {
   return (
     <div className='container-fluid' style={{ backgroundColor: '#E4EFF8' }}>
       <nav className='navbar navbar-expand-xl' >
-        <a className='navbar-brand' href='/'>
+        <Link className='navbar-brand' to='/'>
           <img src={Plane} alt="Plane Logo" width='30' />
-        </a>
+        </Link>
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target='#toggleMobileMenu' aria-controls="toggleMobileMenu" aria-expanded='false' aria-label="Toggle Navigation">
           <span className="navbar-toggler-icon"></span>
