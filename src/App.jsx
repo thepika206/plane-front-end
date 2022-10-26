@@ -87,10 +87,6 @@ const App = () => {
     navigate(`/trips/${tripData.id}`)
   }
 
-  const formatDate = (date)=>{
-    const dateArr = date.split('-')
-    return `${dateArr[1]}-${dateArr[2]}-${dateArr[0]}`
-  }
 
   useEffect(() => {
     const fetchAllActivities = async() => {
