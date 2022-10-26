@@ -19,12 +19,23 @@ main {
   margin: 5vh auto;
 }
 
+.leftSide{
+  display: flex;
+  flex-direction: column;
+}
 .bolded{
   font-weight: bold;
 }
 
 .bottomThird > * {
   margin: auto 5vh;
+}
+
+.reviewContent{
+  padding: 10px;
+  background-color: #e4eff8;
+  height: 400px;
+  width: 100%;
 }
 
 @media only screen and (min-width: 781px){
