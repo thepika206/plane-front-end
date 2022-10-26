@@ -33,6 +33,7 @@ main {
 
 .reviewContent{
   padding: 10px;
+  overflow-y: scroll;
   background-color: #e4eff8;
   height: 400px;
   width: 100%;
