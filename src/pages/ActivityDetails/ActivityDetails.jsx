@@ -78,6 +78,7 @@ const ActivityDetails = (props) => {
       </div>
       <div className={styles.bottomThird}>
         <div className="leftSide">
+          <h2>Add Activity to a Trip</h2>
           {props.user ?<form autoComplete="off" onSubmit={handleSubmit}>
             <label htmlFor="date-input">Date:
               <input type="date" id="date-input" name="date" onChange={handleChangeForm} required/>
