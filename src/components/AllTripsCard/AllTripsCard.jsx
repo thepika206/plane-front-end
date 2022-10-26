@@ -14,11 +14,11 @@ const AllTripsCard = ({trip}) => {
         <header className={styles.text}>
           <span>
             <h1>{trip.name}</h1>
-            <h2>{trip.destination}</h2>
-            <h3>{trip.date}</h3>
           </span>
+            <h6>{trip.startDate}</h6>
         </header>
         <p className={styles.text}>{trip.description}</p>
+        {trip.private?<p>(Visbility: Private)</p>:<></>}
       </article>
     </Link>
   );
