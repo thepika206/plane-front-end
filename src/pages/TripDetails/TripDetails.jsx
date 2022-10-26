@@ -3,6 +3,7 @@ import ActivityPlanCard from '../../components/ActivityPlanCard/ActivityPlanCard
 import * as tripService from '../../services/tripService'
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { formatDateUS } from '../../utilities/formatDateUS'
 
 const TripDetails = (props) => {
   const { id } = useParams()
