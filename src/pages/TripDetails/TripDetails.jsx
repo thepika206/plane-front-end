@@ -37,7 +37,7 @@ const TripDetails = (props) => {
 
           {props.user.profile === trip.owner?._id ?
             <div className={styles.buttonContainer}>
-              <Link to={`/trips/${id}/edit`} state={trip} ><button className="btn btn-warning">Edit Trip</button></Link>
+              <Link to={`/trips/${id}/edit`} state={trip} ><button className="btn btn-outline-warning">Edit Trip</button></Link>
               <Link><button className="btn btn-outline-danger" onClick={() => props.handleDeleteTrip(id)}>Delete Trip</button></Link>
             </div>
             :

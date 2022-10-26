@@ -26,10 +26,10 @@ a {
   padding-bottom: 29.25rem;
 }
 
-.btn-warning {
-  --bs-btn-border-color: #DAD2E2;
-  --bs-btn-color: #DAD2E2;
-  --bs-btn-hover-bg: #DAD2E2;
-  --bs-btn-bg: #DAD2E2;
+.btn-outline-warning {
+  --bs-btn-border-color: #2C2527;
+  --bs-btn-color: #2C2527;
+  --bs-btn-hover-bg: #20c997;
+  /* --bs-btn-bg: #20c997; */
   --bs-btn-hover-border-color: #DAD2E2;
 }
