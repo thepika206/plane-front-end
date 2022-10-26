@@ -15,3 +15,17 @@
 .carousel-caption{
   padding-bottom: 29.25rem;
 }
+
+.btn-outline-primary {
+  --bs-btn-border-color: #DAD2E2;
+  --bs-btn-color: #DAD2E2;
+  --bs-btn-hover-bg: #DAD2E2;
+  --bs-btn-hover-border-color: #DAD2E2;
+}
+.btn-warning {
+  --bs-btn-border-color: #DAD2E2;
+  --bs-btn-color: #DAD2E2;
+  --bs-btn-hover-bg: #DAD2E2;
+  --bs-btn-bg: #DAD2E2;
+  --bs-btn-hover-border-color: #DAD2E2;
+}
