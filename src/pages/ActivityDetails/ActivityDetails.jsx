@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import styles from './ActivityDetails.module.css'
+
 //services
 import * as activityService from '../../services/activityService'
+import * as tripService from '../../services/tripService'
+
+//components
 import ReviewCard from "../../components/ReviewCard/ReviewCard";
 
 const ActivityDetails = (props) => {
@@ -13,6 +17,7 @@ const ActivityDetails = (props) => {
     date:'',
     tripId:'',
   })
+  const [userTrips, setUserTrips] = useState([])
 
   const navigate = useNavigate()
 
@@ -21,8 +26,15 @@ const ActivityDetails = (props) => {
       const activityData = await activityService.show(id)
       setActivity(activityData)
     }
+    const fetchAllTrips = async() => {
+      const tripData = await tripService.index()
+      const userTripData = tripData.filter(trip => trip.owner._id === props.user.profile)
+      setUserTrips(userTripData)
+    }
+    fetchAllTrips()
     fetchActivity()
-  }, [id])
+  }, [id, props.user.profile])
+
 
   const handleChangeForm = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
@@ -72,7 +84,7 @@ const ActivityDetails = (props) => {
             <label htmlFor="trip-select">Trip
               <select name="tripId" id="trip-select" onChange={handleChangeForm} required>
                 <option value=''>Select Trip</option>
-                {props.trips.map((trip) => trip.owner._id === props.user?.profile ? <option key={trip._id} value={trip._id}>{trip.name}</option> : null)}
+                {userTrips.map((trip) => trip.owner._id === props.user?.profile ? <option key={trip._id} value={trip._id}>{trip.name}</option> : null)}
               </select>
             </label>
             <button type="submit">Add to Trip</button>
