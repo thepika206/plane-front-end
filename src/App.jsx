@@ -87,12 +87,9 @@ const App = () => {
     navigate(`/trips/${tripData.id}`)
   }
 
-  const formatDate = (date)=>{
-    const dateArr = date.split('-')
-    return `${dateArr[1]}-${dateArr[2]}-${dateArr[0]}`
-  }
 
   useEffect(() => {
+    // console.log('use effect is running')
     const fetchAllActivities = async() => {
       const activityData = await activityService.index()
       // console.log(activityData)
@@ -149,7 +146,7 @@ const App = () => {
         />
         <Route
           path="/activities/:id"
-          element={<ActivityDetails activities={activities} user={user? user:''} trips={trips}/>}
+          element={<ActivityDetails activities={activities} user={user? user:''} trips={userTrips}/>}
         />
         <Route
           path="/activities/:id/edit"
