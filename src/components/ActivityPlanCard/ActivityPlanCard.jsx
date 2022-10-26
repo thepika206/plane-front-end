@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from './ActivityPlanCard.module.css'
+import { formatDateUS } from "../../utilities/formatDateUS";
+
 const ActivityPlanCard = ({ activityPlan, activities, handleDeleteActivityPlan, tripId}) => {
   const [activity, setActivity] = useState([])
 
@@ -19,7 +21,7 @@ const ActivityPlanCard = ({ activityPlan, activities, handleDeleteActivityPlan, 
         <header className={styles.text}>
           <span>
             <h1>{activity?.name}</h1>
-            <h2>{activityPlan?.date}</h2>
+            <h2>{formatDateUS(activityPlan?.date)}</h2>
           </span>
         </header>
         <p className={styles.text}>{activityPlan?.note}</p>

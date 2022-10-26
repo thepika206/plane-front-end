@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import styles from './AllTripsCard.module.css'
+import { formatDateUS } from "../../utilities/formatDateUS"
 
 const AllTripsCard = ({trip}) => {
 
@@ -15,7 +16,7 @@ const AllTripsCard = ({trip}) => {
           <span>
             <h1>{trip.name}</h1>
           </span>
-            <h6>{trip.startDate}</h6>
+            <h6>{formatDateUS(trip.startDate)}</h6>
         </header>
         <p className={styles.text}>{trip.description}</p>
         {trip.private?<p>(Visbility: Private)</p>:<></>}
