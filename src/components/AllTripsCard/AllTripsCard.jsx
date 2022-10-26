@@ -19,7 +19,7 @@ const AllTripsCard = ({trip}) => {
             <h6>{formatDateUS(trip.startDate)}</h6>
         </header>
         <p className={styles.text}>{trip.description}</p>
-        {trip.private?<p>(Visbility: Private)</p>:<></>}
+        {trip.private?<h6>(Visibility: Private)</h6>:<></>}
       </article>
     </Link>
   );
