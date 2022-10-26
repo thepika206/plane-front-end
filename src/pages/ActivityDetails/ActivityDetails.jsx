@@ -62,6 +62,7 @@ const ActivityDetails = (props) => {
       <div className={styles.actDescBox}>
         <div className={styles.details}>  
           <h2>Details:</h2>
+          <p>Activity Created by: <span className={styles.bolded}>{activity.owner.name} </span></p>
           <p>Destination: <span className={styles.bolded}> {activity.destination} </span></p>
           <p>Cost: <span className={styles.bolded}> {activity.cost} </span></p>
           <p>Duration: 
