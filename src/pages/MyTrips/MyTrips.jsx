@@ -9,9 +9,9 @@ const MyTrips = (props) => {
       <h1 className={styles.allTripsTitle}>My Trips</h1>
       <div>
         <main className={styles.container}>
-          {props.trips.map(trip =>
+          {props.trips.map((trip,idx) =>
           
-            <AllTripsCard key={trip._id} trip={trip} />
+            <AllTripsCard key={idx} trip={trip} />
 
           )}
         </main>
