@@ -60,10 +60,6 @@ const ActivityDetails = (props) => {
         ? <Link to={`/activities/${id}/edit`} state={activity}><button className='btn btn-light'>Edit Activity</button></Link> 
         : <></> }
       <div className={styles.actDescBox}>
-        <div className={styles.description}>
-          <h2>Description</h2>
-          <p>{activity.description}</p>
-        </div>
         <div className={styles.details}>  
           <h2>Details</h2>
           <p>Destination: <span className={styles.bolded}> {activity.destination} </span></p>
@@ -75,6 +71,10 @@ const ActivityDetails = (props) => {
           </p>
           <p>Time of Day: <span className={styles.bolded}> {activity.timeOfDay} </span></p>
         </div>  
+        <div className={styles.description}>
+          <h2>Description</h2>
+          <p>{activity.description}</p>
+        </div>
       </div>
       <div className={styles.bottomThird}>
         <div className="leftSide">
@@ -97,16 +97,17 @@ const ActivityDetails = (props) => {
           <></>
           }
         </div>
-          <div className={styles.reviewTitle}>
-          <h2>Reviews</h2>
-        <div className={styles.reviewsSection}>
-          {activity.reviews.map((review,idx) => 
-            <ReviewCard key={idx} review={review} owner={props.owner}/>
-            )}
-          {props.user ? <Link to={`/activities/${id}/reviews`} className="btn btn-light">Add Review</Link>:<></>}
-        </div>
-
-        </div>
+          <div className={styles.reviewsSection}>
+            <div className={styles.reviewTitle}>
+              <h2>Reviews:</h2>
+              <div className={styles.reviewContent}>
+                {activity.reviews.map((review,idx) => 
+                <ReviewCard key={idx} review={review} owner={props.owner}/>
+                )}
+                {props.user ? <Link to={`/activities/${id}/reviews`} className="btn btn-light">Add Review</Link>:<></>}
+              </div>
+            </div>
+          </div>
       </div>
     </div>
     </main>
