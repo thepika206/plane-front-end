@@ -29,7 +29,6 @@ const TripDetails = (props) => {
   return (
     <div className={styles.tripDetails}>
       <div className={styles.topRow}>
-        <p>Trips {'>'} {trip.name} </p>
         <div className={styles.titleCard}>
           <h1>{trip.name}</h1>
           <h2>{trip.startDate ? formatDateUS(trip.startDate) : ''} - {trip.endDate ? formatDateUS(trip.endDate) : ''}</h2>
