@@ -32,7 +32,7 @@ const TripDetails = (props) => {
         <p>Trips {'>'} {trip.name} </p>
         <div className={styles.titleCard}>
           <h1>{trip.name}</h1>
-          <h2>{trip.startDate} {' - '} {trip.endDate}</h2>
+          <h2>{trip.startDate ? formatDateUS(trip.startDate) : ''} - {trip.endDate ? formatDateUS(trip.endDate) : ''}</h2>
           <h3>Visibility Setting: {trip.private ? 'Private' : 'Public'}</h3>
 
           {props.user.profile === trip.owner?._id ?
