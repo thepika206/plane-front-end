@@ -1,6 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate} from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // page components
 import Signup from './pages/Signup/Signup'
@@ -36,7 +36,7 @@ const App = () => {
   const [activities, setActivities] = useState([])
   const [trips, setTrips] = useState([])
   const [userTrips, setUserTrips] = useState([])
-  const [reviews,setReviews] = useState([])
+  const [reviews, setReviews] = useState([])
 
   const navigate = useNavigate()
 
@@ -52,19 +52,19 @@ const App = () => {
 
   const handleAddActivity = async (activityData) => {
     const newActivity = await activityService.create(activityData)
-    setActivities([...activities,newActivity])
+    setActivities([...activities, newActivity])
     navigate('/activities')
   }
-  const handleAddReview = async(reviewData) => {
+  const handleAddReview = async (reviewData) => {
     const newReview = await activityService.createReview(reviewData)
-    setReviews([...reviews,newReview])
+    setReviews([...reviews, newReview])
     navigate(`/activities/${reviewData.activity}`)
   }
 
   const handleAddTrip = async (tripData) => {
     const newTrip = await tripService.create(tripData)
-    setTrips([newTrip, ...trips ])
-    setUserTrips([newTrip, ...userTrips ])
+    setTrips([newTrip, ...trips])
+    setUserTrips([newTrip, ...userTrips])
     navigate(`/trips/${newTrip._id}`)
   }
 
@@ -95,7 +95,7 @@ const App = () => {
       // console.log(activityData)
       setActivities(activityData)
     }
-    const fetchAllTrips = async() => {
+    const fetchAllTrips = async () => {
       const tripData = await tripService.index()
       // console.log(tripData)
       const userTripData = tripData.filter(trip => trip.owner._id === user.profile)
@@ -105,10 +105,11 @@ const App = () => {
     }
     fetchAllActivities()
     fetchAllTrips()
-  },[user?.profile])
+  }, [user?.profile])
 
   return (
     <>
+
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
@@ -122,12 +123,12 @@ const App = () => {
         />
         <Route
           path="/activities"
-          element={<ActivityList 
+          element={<ActivityList
             activities={activities}
-            user={user? user:''}
+            user={user ? user : ''}
           />}
         />
-      
+
         <Route
           path="/activities/new"
           element={
@@ -160,18 +161,18 @@ const App = () => {
           path="/trips/:id/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditTrip handleUpdateTrip={handleUpdateTrip} trips={trips} user={user? user:''} />
+              <EditTrip handleUpdateTrip={handleUpdateTrip} trips={trips} user={user ? user : ''} />
             </ProtectedRoute>
           }
         />
-        
-        <Route 
+
+        <Route
           path="/trips/new"
           element={
-          <ProtectedRoute user={user}>
-            <NewTrip handleAddTrip={handleAddTrip}/>
-          </ProtectedRoute>
-          } 
+            <ProtectedRoute user={user}>
+              <NewTrip handleAddTrip={handleAddTrip} />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/trips"
@@ -185,13 +186,13 @@ const App = () => {
           path="/trips/my-trips"
           element={
             <ProtectedRoute user={user}>
-              <MyTrips trips={userTrips} user={user}/>
+              <MyTrips trips={userTrips} user={user} />
             </ProtectedRoute>
           }
         />
         <Route
           path="/trips/:id"
-          element={<TripDetails  user={user} activities={activities} handleDeleteTrip={handleDeleteTrip}/>}
+          element={<TripDetails user={user} activities={activities} handleDeleteTrip={handleDeleteTrip} />}
         />
         <Route
           path="/profiles"
