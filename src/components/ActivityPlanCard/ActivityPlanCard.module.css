@@ -93,9 +93,7 @@ a {
 	height: 14px;
 }
 
-.text {
-  color: #3A4856;
-}
+
 .activityButtons{
   display: flex;
   justify-content: space-evenly;
