@@ -45,7 +45,7 @@ const ActivityDetails = (props) => {
     <div className={styles.activityDetails}>
       <h1>Details: {activity.name}</h1>
       {props.user.profile === activity.owner._id 
-        ? <Link to={`/activities/${id}/edit`} state={activity}><button>Edit Activity</button></Link> 
+        ? <Link to={`/activities/${id}/edit`} state={activity}><button className='btn btn-light'>Edit Activity</button></Link> 
         : <></> }
       <div className={styles.actDescBox}>
         <div className={styles.description}>
@@ -54,10 +54,14 @@ const ActivityDetails = (props) => {
         </div>
         <div className={styles.details}>  
           <h2>Details</h2>
-          <p>Destination: {activity.destination}</p>
-          <p>Cost: {activity.cost}</p>
-          <p>Duration: {activity.duration}</p>
-          <p>Time of Day: {activity.timeOfDay}</p>
+          <p>Destination: <span className={styles.bolded}> {activity.destination} </span></p>
+          <p>Cost: <span className={styles.bolded}> {activity.cost} </span></p>
+          <p>Duration: 
+            <span className={styles.bolded}> 
+              {activity.duration} {activity.duration === 1 ? 'hour' : 'hours'}
+            </span>
+          </p>
+          <p>Time of Day: <span className={styles.bolded}> {activity.timeOfDay} </span></p>
         </div>  
       </div>
       <div className={styles.bottomThird}>
@@ -66,7 +70,7 @@ const ActivityDetails = (props) => {
             <label htmlFor="date-input">Date:
               <input type="date" id="date-input" name="date" onChange={handleChangeForm} required/>
             </label>
-            <label htmlFor="note-text-area">Activity Notes:
+            <label style={{marginTop: '10px'}}htmlFor="note-text-area">Activity Notes:
               <textarea name="note" id="note-text-area" cols="30" rows="10" onChange={handleChangeForm}></textarea>
             </label>
             <label htmlFor="trip-select">Trip
@@ -75,19 +79,20 @@ const ActivityDetails = (props) => {
                 {props.trips.map((trip) => trip.owner._id === props.user?.profile ? <option key={trip._id} value={trip._id}>{trip.name}</option> : null)}
               </select>
             </label>
-            <button type="submit">Add to Trip</button>
+            <button type="submit" className='btn btn-primary'>Add to Trip</button>
           </form>
           :
           <></>
           }
         </div>
-        <div 
-          className={styles.reviewsSection} >
+          <div className={styles.reviewTitle}>
           <h2>Reviews</h2>
+        <div className={styles.reviewsSection}>
           {activity.reviews.map((review,idx) => 
             <ReviewCard key={idx} review={review} owner={props.owner}/>
             )}
-          {props.user ? <Link to={`/activities/${id}/reviews`} className="btn btn-primary">Add Review</Link>:<></>}
+          {props.user ? <Link to={`/activities/${id}/reviews`} className="btn btn-light">Add Review</Link>:<></>}
+        </div>
 
         </div>
       </div>
