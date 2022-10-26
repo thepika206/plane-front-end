@@ -40,3 +40,6 @@ h1 {
 .allActivities{
   text-align: center;
 }
+.destSelect{
+  width: fit-content;
+}
