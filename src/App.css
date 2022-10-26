@@ -1,5 +1,15 @@
+
+
+body {
+  background: #FFEEEB;
+  color: #2C2527;
+}
+a {
+  --bs-link-color: #2c2527;
+}
 .navbar a {
   text-decoration: none;
+  --bs-link-color: var(--primary);
 }
 
 .button-primary {
@@ -16,12 +26,6 @@
   padding-bottom: 29.25rem;
 }
 
-.btn-outline-primary {
-  --bs-btn-border-color: #DAD2E2;
-  --bs-btn-color: #DAD2E2;
-  --bs-btn-hover-bg: #DAD2E2;
-  --bs-btn-hover-border-color: #DAD2E2;
-}
 .btn-warning {
   --bs-btn-border-color: #DAD2E2;
   --bs-btn-color: #DAD2E2;
