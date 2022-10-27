@@ -111,7 +111,7 @@ const App = () => {
   }, [user?.profile])
 
   return (
-    <>
+    <div className='homePage'>
 
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
@@ -214,7 +214,7 @@ const App = () => {
           }
         />
       </Routes>
-    </>
+    </div>
   )
 }
 

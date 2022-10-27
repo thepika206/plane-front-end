@@ -23,9 +23,9 @@ const NewTrip = ({handleAddTrip}) => {
 
   return ( 
     <main className={styles.container}>
-    <h1>New Trip</h1>
+    <h1 className={styles.newTripTitle}>New Trip</h1>
     <form autoComplete="off" onSubmit={handleSubmit}>
-      <label htmlFor="name-input">Name of Trip</label>
+      <label htmlFor="name-input" className={styles.newTripTitle}>Name of Trip</label>
       <input
         required
         type="text"
@@ -35,7 +35,7 @@ const NewTrip = ({handleAddTrip}) => {
         onChange={handleChange}
         placeholder=" ...examples: Boston Fun With Family / Weekend in Atlanta"
         />
-      <label htmlFor="startDate-input">Start Date</label>
+      <label htmlFor="startDate-input" className={styles.newTripTitle}>Start Date</label>
       <input
         required
         type="date"
@@ -44,7 +44,7 @@ const NewTrip = ({handleAddTrip}) => {
         value={form.startDate}
         onChange={handleChange}
         />
-      <label htmlFor="endDate-input">End Date</label>
+      <label htmlFor="endDate-input" className={styles.newTripTitle}>End Date</label>
       <input
         required
         type="date"
@@ -54,7 +54,7 @@ const NewTrip = ({handleAddTrip}) => {
         onChange={handleChange}
         
         />
-        <label htmlFor="private-input">Private To You?</label>
+        <label htmlFor="private-input" className={styles.newTripTitle}>Private To You?</label>
         <select 
           name="private"
           id="private-input"

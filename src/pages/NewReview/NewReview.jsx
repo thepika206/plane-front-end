@@ -37,11 +37,11 @@ const NewReview = ({handleAddReview, activities}) => {
   if (!currentActivity) return <h1>Loading...</h1>
   return (
     <main className={styles.container}>
-      <h1>Add Review</h1>
-      <h4>{currentActivity.name}</h4>
-      <p>{currentActivity.description}</p>
+      <h1 className={styles.newReviewTitle}>Add Review</h1>
+      <h4 className={styles.newReviewTitle}>{currentActivity.name}</h4>
+      <p className={styles.newReviewTitle}>{currentActivity.description}</p>
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <label htmlFor="content">Content</label>
+        <label htmlFor="content" className={styles.newReviewTitle}>Content</label>
         <textarea
           required
           type="text"
@@ -49,7 +49,7 @@ const NewReview = ({handleAddReview, activities}) => {
           id="content"
           onChange={handleChange}
         />
-        <label htmlFor="recommended">Recommend</label>
+        <label htmlFor="recommended" className={styles.newReviewTitle}>Recommend</label>
         <select name="recommended" id="recommended" onChange={handleChange}>
           <option value={true}>Yes</option>
           <option value={false}>No</option>

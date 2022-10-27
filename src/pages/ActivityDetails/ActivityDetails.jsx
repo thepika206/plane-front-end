@@ -55,13 +55,13 @@ const ActivityDetails = (props) => {
   return (
     <main >
     <div className={styles.activityDetails}>
-      <h1>Details: {activity.name}</h1>
+      <h1 className={styles.activityTitle}>Details: {activity.name}</h1>
       {props.user.profile === activity.owner._id 
         ? <Link to={`/activities/${id}/edit`} state={activity}><button className='btn btn-outline-warning'>Edit Activity</button></Link> 
         : <></> }
       <div className={styles.actDescBox}>
         <div className={styles.details}>  
-          <h2>Details:</h2>
+          <h2 >Details:</h2>
           <p>Activity Created by: <span className={styles.bolded}>{activity.owner.name} </span></p>
           <p>Destination: <span className={styles.bolded}> {activity.destination} </span></p>
           <p>Cost: <span className={styles.bolded}> {activity.cost} </span></p>
@@ -79,7 +79,7 @@ const ActivityDetails = (props) => {
       </div>
       <div className={styles.bottomThird}>
         <div className={styles.leftSide}>
-          <h3>Add This Activity to Your Trip:</h3>
+          <h3 className={styles.activityTitle}>Add This Activity to Your Trip:</h3>
           {props.user ?<form autoComplete="off" onSubmit={handleSubmit}>
             <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1" >Date</span>
@@ -90,7 +90,7 @@ const ActivityDetails = (props) => {
             </label>
             <label htmlFor="trip-select"><span className={styles.bolded}>Trip</span>
               <select name="tripId" id="trip-select" onChange={handleChangeForm} required>
-                <option value=''>Select Trip</option>
+                <option value='' >Select Trip</option>
                 {userTrips.map((trip) => trip.owner._id === props.user?.profile ? <option key={trip._id} value={trip._id}>{trip.name}</option> : null)}
               </select>
             </label>
@@ -102,7 +102,7 @@ const ActivityDetails = (props) => {
         </div>
           <div className={styles.reviewsSection}>
             <div className={styles.reviewTitle}>
-              <h2>Reviews:</h2>
+              <h2 className={styles.activityTitle}>Reviews:</h2>
               <div className={styles.reviewContent}>
                 {activity.reviews.map((review,idx) => 
                 <ReviewCard key={idx} review={review} owner={props.owner}/>

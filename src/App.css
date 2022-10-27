@@ -25,7 +25,14 @@ a {
   width: auto;
 }
 .carousel-caption{
-  padding-bottom: 29.25rem;
+  padding-bottom: 20vh;
+}
+.carouselTitle{
+  background-color: rgba(44, 37, 39,.6);
+  width: fit-content;
+  margin: auto;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .btn-outline-warning {
@@ -34,4 +41,14 @@ a {
   --bs-btn-hover-bg: #20c997;
   /* --bs-btn-bg: #20c997; */
   --bs-btn-hover-border-color: #DAD2E2;
+}
+.homePage{
+  background-image: url("./assets/PlaneBack.png");
+  background-repeat:repeat repeat;
+  background-size: contain;
+  min-height: 100vh;
+}
+
+.landingBtn,.tripEditButton{
+  --bs-btn-bg: #FFEEEB;
 }

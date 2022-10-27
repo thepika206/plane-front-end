@@ -3,3 +3,9 @@
   align-items: center;
   flex-direction: column;
 }
+.loginHeading{
+  background-color: rgba(255, 238, 235,.7);
+  width: fit-content;
+  margin: auto;
+  border-radius: 10px;
+}

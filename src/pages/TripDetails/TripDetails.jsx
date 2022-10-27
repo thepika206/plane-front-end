@@ -30,13 +30,13 @@ const TripDetails = (props) => {
     <div className={styles.tripDetails}>
       <div className={styles.topRow}>
         <div className={styles.titleCard}>
-          <h1>{trip.name}</h1>
-          <h2>{trip.startDate ? formatDateUS(trip.startDate) : ''} - {trip.endDate ? formatDateUS(trip.endDate) : ''}</h2>
-          <h3>Visibility Setting: {trip.private ? 'Private' : 'Public'}</h3>
+          <h1 className={styles.tripHeading}>{trip.name}</h1>
+          <h2 className={styles.tripHeading}>{trip.startDate ? formatDateUS(trip.startDate) : ''} - {trip.endDate ? formatDateUS(trip.endDate) : ''}</h2>
+          <h3 className={styles.tripHeading}>Visibility Setting: {trip.private ? 'Private' : 'Public'}</h3>
 
           {props.user.profile === trip.owner?._id ?
             <div className={styles.buttonContainer}>
-              <Link to={`/trips/${id}/edit`} state={trip} ><button className="btn btn-outline-warning">Edit Trip</button></Link>
+              <Link to={`/trips/${id}/edit`} state={trip} ><button className="btn btn-outline-warning tripEditButton">Edit Trip</button></Link>
               <Link><button className="btn btn-outline-danger" onClick={() => props.handleDeleteTrip(id)}>Delete Trip</button></Link>
             </div>
             :

@@ -6,7 +6,7 @@ const Landing = ({ user }) => {
     <div>
       <HomePageCarousel />
       <p>
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <button className="btn btn-outline-primary landingBtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           Learn More About Plan.e
         </button>
       </p>
