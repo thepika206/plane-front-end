@@ -12,6 +12,16 @@ const index = async() => {
     console.log(error)
   }
 }
+const indexPersonal = async() => {
+  try {
+    const res = await fetch(`${BASE_URL}/my-trips`, {
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 const show = async(id) => {
   try {
@@ -88,6 +98,7 @@ const update = async (tripData) => {
 
 export {
   index,
+  indexPersonal,
   show,
   create,
   deleteActivityPlan,
