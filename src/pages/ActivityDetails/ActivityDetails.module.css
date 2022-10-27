@@ -16,6 +16,7 @@ main {
   overflow-y: scroll;
   background-color: #e4eff8;
   margin: 5vh auto;
+  box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
 }
 
 .leftSide{
