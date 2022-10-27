@@ -6,13 +6,15 @@
   margin-bottom: 50px;
 }
 
-.label,
-.button {
+.label {
   background-color: rgba(255, 238, 235,.7);
 
   margin-right: .5rem;
 }
-
+.button {
+    background-color: #4169e1;
+    color: white;
+}
 .inputContainer {
   margin-bottom: 1rem;
 }
