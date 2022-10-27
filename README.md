@@ -1,7 +1,21 @@
 # Plan.e [🛫](https://wifi-travelers-plane.netlify.app)  
 
 ---
-## About Plan.e 
+## Get started with Plan.e [🛫](https://wifi-travelers-plane.netlify.app)
+
+> To Get Started:
+>
+>1. If you are an existing member, log in to your account. If not, signup!
+>
+>2. Create a New Trip
+>
+>3. Browse through the activities for the respected destination of your trip
+>
+>4. Find an activity you like. Read more about it and whether or not other users liked it as well
+>
+>5. Want to add this activity to be a part of your trip? No problem, add it to your respected trip and Plan.e ahead of time
+>
+> Thank you for visiting our app. Cheers to safe and stress-free travels!
 
 
 ---
@@ -16,10 +30,14 @@
 >> Screenshots
 >
 >> Planning Materials
-> - Trello Board  
-> - Planning 
-
-
+> - [Trello Board](https://trello.com/b/dML6GGmF/plane)  
+> - Planning Diagram
+> 
+>> Technologies Used
+>
+>> Credits
+>
+>> Ice Box
 
 
 
@@ -42,26 +60,6 @@
 ![screenshot](src/assets/PlaneErd.png)
 
 
-
-
-
-### How to use our app 📋
-
-> Welcome to Plan.e! A stress-free and collaborative app for travelers
-> 
-> To Get Started:
->
->1. If you are an existing member, log in to your account. If not, signup!
->
->2. Create a New Trip
->
->3. Browse through the activities for the respected destination of your trip
->
->4. Find an activity you like. Read more about it and whether or not other users liked it as well
->
->5. Want to add this activity to be a part of your trip? No problem, add it to your respected trip and Plan.e ahead of time
->
-> Thank you for visiting our app. Cheers to safe and stress-free travels!
 
 ### Technologies Used 💻
  
