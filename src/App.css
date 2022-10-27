@@ -40,10 +40,13 @@ a {
   /* --bs-btn-bg: #20c997; */
   --bs-btn-hover-border-color: #DAD2E2;
 }
-.homePage {
+.homePage{
   background-image: url("./assets/PlaneBack.png");
-  background-repeat:repeat;
+  background-repeat:repeat repeat;
   background-size: contain;
-  height: 100vh;
+  min-height: 100vh;
 }
 
+.landingBtn,.tripEditButton{
+  --bs-btn-bg: #FFEEEB;
+}

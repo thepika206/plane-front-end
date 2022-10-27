@@ -1,6 +1,12 @@
 main {
   margin: 20px;
 }
+.activityTitle{
+  background-color: rgba(255, 238, 235,.7);
+  width: fit-content;
+  margin: auto;
+  border-radius: 10px;
+}
 
 .activityDetails{
   display: flex;

@@ -7,6 +7,12 @@
   align-items: center;
   flex-direction: column;
 }
+.newTripTitle{
+  background-color: rgba(255, 238, 235,.7);
+  width: fit-content;
+  margin: auto;
+  border-radius: 10px;
+}
 
 .container input, textarea, select, button { 
   width: 100%;

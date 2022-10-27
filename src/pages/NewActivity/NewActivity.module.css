@@ -22,7 +22,12 @@
 .container textarea {
   min-height: 50px;
 }
-
+.newActivityTitle{
+  background-color: rgba(255, 238, 235,.7);
+  width: fit-content;
+  margin: auto;
+  border-radius: 10px;
+}
 .container label {
   font-weight: 600;
   margin: 7px 0px 14px 0px;

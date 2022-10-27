@@ -55,13 +55,13 @@ const ActivityDetails = (props) => {
   return (
     <main >
     <div className={styles.activityDetails}>
-      <h1>Details: {activity.name}</h1>
+      <h1 className={styles.activityTitle}>Details: {activity.name}</h1>
       {props.user.profile === activity.owner._id 
         ? <Link to={`/activities/${id}/edit`} state={activity}><button className='btn btn-outline-warning'>Edit Activity</button></Link> 
         : <></> }
       <div className={styles.actDescBox}>
         <div className={styles.details}>  
-          <h2>Details:</h2>
+          <h2 >Details:</h2>
           <p>Activity Created by: <span className={styles.bolded}>{activity.owner.name} </span></p>
           <p>Destination: <span className={styles.bolded}> {activity.destination} </span></p>
           <p>Cost: <span className={styles.bolded}> {activity.cost} </span></p>
@@ -79,19 +79,19 @@ const ActivityDetails = (props) => {
       </div>
       <div className={styles.bottomThird}>
         <div className={styles.leftSide}>
-          <h2>Add Activity to Your Trip:</h2>
+          <h2 className={styles.activityTitle}>Add Activity to Your Trip:</h2>
           {props.user ?<form autoComplete="off" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="date-input">Date:
+              <label htmlFor="date-input" className={styles.activityTitle}>Date:
                 <input type="date" id="date-input" name="date" onChange={handleChangeForm} required/>
               </label>
             </div>
-            <label style={{marginTop: '10px'}}htmlFor="note-text-area">Activity Notes:
+            <label style={{marginTop: '10px'}}htmlFor="note-text-area" className={styles.activityTitle}>Activity Notes:
               <textarea name="note" id="note-text-area" cols="30" rows="10" onChange={handleChangeForm}></textarea>
             </label>
-            <label htmlFor="trip-select">Trip
+            <label htmlFor="trip-select" className={styles.activityTitle}>Trip
               <select name="tripId" id="trip-select" onChange={handleChangeForm} required>
-                <option value=''>Select Trip</option>
+                <option value='' >Select Trip</option>
                 {userTrips.map((trip) => trip.owner._id === props.user?.profile ? <option key={trip._id} value={trip._id}>{trip.name}</option> : null)}
               </select>
             </label>
@@ -103,7 +103,7 @@ const ActivityDetails = (props) => {
         </div>
           <div className={styles.reviewsSection}>
             <div className={styles.reviewTitle}>
-              <h2>Reviews:</h2>
+              <h2 className={styles.activityTitle}>Reviews:</h2>
               <div className={styles.reviewContent}>
                 {activity.reviews.map((review,idx) => 
                 <ReviewCard key={idx} review={review} owner={props.owner}/>
