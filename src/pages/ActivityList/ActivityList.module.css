@@ -1,6 +1,4 @@
-.allActivitiesTitle {
-  color: #3A4856;
-}
+
 .container {
   gap: 14px;
   width: 100%;
@@ -41,4 +39,5 @@ h1 {
 }
 .destSelect{
   width: fit-content;
+  font-family: 'Ubuntu', sans-serif;
 }

@@ -98,13 +98,16 @@ const App = () => {
     const fetchAllTrips = async () => {
       const tripData = await tripService.index()
       // console.log(tripData)
-      const userTripData = tripData.filter(trip => trip.owner._id === user.profile)
-      // console.log(userTripData)
       setTrips(tripData)
+    }
+    const fetchUserTrips = async () => {
+      const userTripData = await tripService.indexPersonal()
+      // console.log(userTripData)
       setUserTrips(userTripData)
     }
     fetchAllActivities()
     fetchAllTrips()
+    fetchUserTrips()
   }, [user?.profile])
 
   return (

@@ -79,17 +79,16 @@ const ActivityDetails = (props) => {
       </div>
       <div className={styles.bottomThird}>
         <div className={styles.leftSide}>
-          <h2 className={styles.activityTitle}>Add Activity to Your Trip:</h2>
+          <h3 className={styles.activityTitle}>Add This Activity to Your Trip:</h3>
           {props.user ?<form autoComplete="off" onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="date-input" className={styles.activityTitle}>Date:
-                <input type="date" id="date-input" name="date" onChange={handleChangeForm} required/>
-              </label>
+            <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1" >Date</span>
+                <input type="date" id="date-input" name="date" onChange={handleChangeForm} aria-describedby="basic-addon1" class="form-control" required/>
             </div>
-            <label style={{marginTop: '10px'}}htmlFor="note-text-area" className={styles.activityTitle}>Activity Notes:
-              <textarea name="note" id="note-text-area" cols="30" rows="10" onChange={handleChangeForm}></textarea>
+            <label style={{marginTop: '10px'}}htmlFor="note-text-area"><span className={styles.bolded}>Activity Notes:</span>
+              <textarea name="note" id="note-text-area floatingTextarea" cols="30" rows="10" onChange={handleChangeForm} class="form-control" placeholder="Leave a note here"></textarea>
             </label>
-            <label htmlFor="trip-select" className={styles.activityTitle}>Trip
+            <label htmlFor="trip-select"><span className={styles.bolded}>Trip</span>
               <select name="tripId" id="trip-select" onChange={handleChangeForm} required>
                 <option value='' >Select Trip</option>
                 {userTrips.map((trip) => trip.owner._id === props.user?.profile ? <option key={trip._id} value={trip._id}>{trip.name}</option> : null)}

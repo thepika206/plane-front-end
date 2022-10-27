@@ -13,10 +13,9 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: #3A4856
 }
 .actDescBox {
-  border: 1px solid black;
+  border: 1px solid #3e3336;
   padding: 20px;
   width: 75vw;
   height: 30vh;
@@ -43,6 +42,8 @@ main {
   background-color: #e4eff8;
   height: 400px;
   width: 100%;
+  border: 1px solid rgb(105, 105, 105);
+  box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
 }
 
 @media only screen and (min-width: 781px){
