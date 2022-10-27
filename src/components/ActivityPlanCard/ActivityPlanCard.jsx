@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from './ActivityPlanCard.module.css'
 import { formatDateUS } from "../../utilities/formatDateUS";
 
-const ActivityPlanCard = ({ activityPlan, activities, handleDeleteActivityPlan, tripId}) => {
+const ActivityPlanCard = ({user, trip, activityPlan, activities, handleDeleteActivityPlan, tripId}) => {
   const [activity, setActivity] = useState([])
 
   useEffect(() => {
@@ -27,7 +27,12 @@ const ActivityPlanCard = ({ activityPlan, activities, handleDeleteActivityPlan, 
         <p className={styles.text}>{activityPlan?.note}</p>
         <div className={styles.activityButtons}>
           <Link className="btn btn-outline-primary " to={`/activities/${activityPlan.activity}`}>More Info</Link>
-          <Link className="btn btn-outline-danger" onClick={()=> handleDeleteActivityPlan(tripId, activityPlan._id) }>Remove</Link>
+          {user.profile === trip.owner._id ?
+                    <Link className="btn btn-outline-danger" onClick={()=> handleDeleteActivityPlan(tripId, activityPlan._id) }>Remove</Link>
+                    :
+                    <></>
+        }
+
         </div>
       </article>
 
