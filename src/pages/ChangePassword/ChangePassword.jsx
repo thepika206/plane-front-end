@@ -12,7 +12,7 @@ const ChangePassword = props => {
   return (
     <main className={styles.container}>
       <h1 className={styles.changeHeading}>Change Password</h1>
-      <p>{message}</p>
+      <p className={styles.changeHeading}>{message}</p>
       <ChangePasswordForm {...props} updateMessage={updateMessage} />
     </main>
   )
