@@ -8,11 +8,13 @@ const ActivityCard = ({activity}) => {
         <header className={styles.text}>
           <span>
             <h1>{activity.name}</h1>
-            <h2>{activity.destination}</h2>
           </span>
         </header>
         <p className={styles.text}>{activity.description}</p>
-        <p className={styles.text}>Added by: {activity.owner.name}</p>
+        <span className={styles.footer}>
+          <p className={styles.text}>Added by: {activity.owner.name}</p>
+          <h6>{activity.destination}</h6>
+        </span>
       </article>
     </Link>
   );
