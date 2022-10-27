@@ -54,6 +54,8 @@ const TripDetails = (props) => {
               activityPlan={activityPlan}
               activities={props.activities}
               tripId={id}
+              trip={trip}
+              user={props.user}
               handleDeleteActivityPlan={handleDeleteActivityPlan}
             />
 
