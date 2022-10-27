@@ -15,7 +15,7 @@ const Landing = ({ user }) => {
           <h2>Welcome to <span style={{fontWeight:'bold'}}>Plan.e</span>! A stress-free and collaborative app for travelers</h2>
           <h4 id="started">To Get Started:</h4>
           <ol id="steps">
-            <li>If you are an existing member, login to your account. If not, signup!</li>
+            <li>If you are an existing member, login to your account. If not, browse our activities and signup!</li>
             <li>Create a New Trip</li>
             <li>Browse through the activities for the respected destination of your trip</li>
             <li>Find an activity you like? Read more about it and whether or not other users liked it as well </li>
