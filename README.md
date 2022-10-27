@@ -6,7 +6,9 @@
 ---
 
 ## Screenshots Below 📸 ==>
-
+![screenshot](/src/assets/PlaneLanding.png)
+![screenshot](src/assets/PlaneActivities.png)
+![screenshot](src/assets/UserFlowDiagram.png)
 
 
 ### Trello Planning Board [here](https://trello.com/b/dML6GGmF/plane) 💡
@@ -56,11 +58,10 @@
 >
 > [Jennifer Juarez](https://github.com/J3NNog1)
 > 
-> GA engineering channel.
+> GA engineering channel
 
 ### Ice Box ❄️
 
-- [ ] AA Admin, I should be able to add destinations to the site.
 
 - [ ] AAU, I should be able to implement the group aspect of planning the trips. 
 
@@ -76,3 +77,4 @@
 
 - [ ] AAU, I want to see everyones profiles and where they have been.
   
+- [ ] AA Admin, I should be able to add destinations to the site.
