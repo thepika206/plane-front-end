@@ -57,7 +57,7 @@ const ActivityDetails = (props) => {
     <div className={styles.activityDetails}>
       <h1>Details: {activity.name}</h1>
       {props.user.profile === activity.owner._id 
-        ? <Link to={`/activities/${id}/edit`} state={activity}><button className='btn btn-light'>Edit Activity</button></Link> 
+        ? <Link to={`/activities/${id}/edit`} state={activity}><button className='btn btn-outline-warning'>Edit Activity</button></Link> 
         : <></> }
       <div className={styles.actDescBox}>
         <div className={styles.details}>  
@@ -108,7 +108,7 @@ const ActivityDetails = (props) => {
                 {activity.reviews.map((review,idx) => 
                 <ReviewCard key={idx} review={review} owner={props.owner}/>
                 )}
-                {props.user ? <Link to={`/activities/${id}/reviews`} className="btn btn-light">Add Review</Link>:<></>}
+                {props.user ? <Link to={`/activities/${id}/reviews`} className="btn btn-outline-primary">Add Review</Link>:<></>}
               </div>
             </div>
           </div>
