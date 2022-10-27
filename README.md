@@ -1,26 +1,9 @@
-# Plan.e 🛫
+# Plan.e [🛫](https://wifi-travelers-plane.netlify.app)  
 
 ---
+## Get started with Plan.e [🛫](https://wifi-travelers-plane.netlify.app)
 
-## Click [🛫](https://wifi-travelers-plane.netlify.app) to get started with Plan.e 
----
-
-## Screenshots Below 📸 ==>
-![screenshot](/src/assets/PlaneLanding.png)
-![screenshot](src/assets/PlaneActivities.png)
-![screenshot](src/assets/UserFlowDiagram.png)
-
-
-### Trello Planning Board [here](https://trello.com/b/dML6GGmF/plane) 💡
-
-### [Plane Back-End Repository](https://github.com/thepika206/plane-back-end)
-
-
-### How to use our app 📋
-
-> Welcome to Plan.e! A stress-free and collaborative app for travelers
-> 
-> To Get Started:
+> How to Get Started:
 >
 >1. If you are an existing member, log in to your account. If not, signup!
 >
@@ -34,8 +17,54 @@
 >
 > Thank you for visiting our app. Cheers to safe and stress-free travels!
 
+
+---
+## Table of Contents
+
+>>  About Plan.e
+> - Our Solution: Plan.e, A stress-free and collaborative application for travelers.
+>> Table of Contents
+>
+>> Deloyment Link
+>
+>> Screenshots
+>
+>> Planning Materials
+> - [Trello Board](https://trello.com/b/dML6GGmF/plane)  
+> - Planning Diagram
+> 
+>> Technologies Used
+>
+>> Credits
+>
+>> Ice Box
+
+
+
+
+## Click the  [🛫](https://wifi-travelers-plane.netlify.app)   to get started 
+---
+
+## Screenshots Below 📸 ==>
+![screenshot](/src/assets/PlaneLanding.png)
+![screenshot](src/assets/PlaneActivities.png)
+
+## Plan.e Back-End Repository
+### View back-end repo [here](https://github.com/thepika206/plane-back-end) 💡
+
+## Planning Materials
+
+### Trello Planning Board [here](https://trello.com/b/dML6GGmF/plane) 💡
+### Planning diagram
+![screenshot](src/assets/UserFlowDiagram.png)
+![screenshot](src/assets/PlaneErd.png)
+
+
+
 ### Technologies Used 💻
  
+> React
+
 > HTML | CSS
 
 > Javascript
@@ -44,9 +73,9 @@
 
 > MongoDb with Mongoose
 
-> Google OAuth
+> Bootstrap
 
-> React
+> 
 
 ### Credits ✒️
 
@@ -58,7 +87,9 @@
 >
 > [Jennifer Juarez](https://github.com/J3NNog1)
 > 
-> GA engineering channel
+> GA Engineering Channel
+> 
+> Starter Project Template from Ben and David.
 
 ### Ice Box ❄️
 
