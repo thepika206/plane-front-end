@@ -95,6 +95,20 @@
 >
 > [Jennifer Juarez](https://github.com/J3NNog1)
 
->
+### Ice Box 
 
+- [ ] AA Admin, I should be able to add destinations to the site.
 
+- [ ] AAU, I should be able to implement group aspect of planning the trips 
+
+- [ ] AAU, I should be filter activities based on age rating
+
+- [ ] AAU, when other users find your review helpful (helpful tag) - Lots of helpful tags gives you a verification tag
+
+- [ ] AAU, I should be able to copy a pre-made travel plan into my account and modify it.
+  
+- [ ] AAU, I should be able to filter activity categories
+  
+- [ ] AAU, I should be able to filter activities for my contributions
+
+- [ ] AAU, I should be able to filter activities for my contributions
