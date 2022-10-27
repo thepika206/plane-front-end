@@ -23,7 +23,14 @@ a {
   width: auto;
 }
 .carousel-caption{
-  padding-bottom: 29.25rem;
+  padding-bottom: 20vh;
+}
+.carouselTitle{
+  background-color: rgba(44, 37, 39,.6);
+  width: fit-content;
+  margin: auto;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .btn-outline-warning {

@@ -19,9 +19,11 @@ const HomePageCarousel = (props) => {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img src={Boston} className="d-block w-100" alt="..." />
-            <div className="carousel-caption d-none d-md-block">
-              <h1 style={{ color: 'white' }}>Plan.e</h1>
-              <h4>Making sure you never have to plan a trip alone again</h4>
+            <div className="carousel-caption">
+              <div className="carouselTitle">
+                <h1 style={{ color: 'white' }} >Plan.e</h1>
+                <h4 >Making sure you never have to plan a trip alone again</h4>
+              </div>
             </div>
           </div>
           <div className="carousel-item">
