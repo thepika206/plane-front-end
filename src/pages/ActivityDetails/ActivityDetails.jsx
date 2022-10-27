@@ -57,7 +57,7 @@ const ActivityDetails = (props) => {
     <div className={styles.activityDetails}>
       <h1 className={styles.activityTitle}>Details: {activity.name}</h1>
       {props.user.profile === activity.owner._id 
-        ? <Link to={`/activities/${id}/edit`} state={activity}><button className='btn btn-outline-warning'>Edit Activity</button></Link> 
+        ? <Link to={`/activities/${id}/edit`} state={activity}><button className='btn btn-outline-warning tripEditButton'>Edit Activity</button></Link> 
         : <></> }
       <div className={styles.actDescBox}>
         <div className={styles.details}>  

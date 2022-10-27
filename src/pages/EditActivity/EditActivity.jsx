@@ -18,9 +18,9 @@ const EditActivity = ({handleUpdateActivity}) => {
   
   return (
     <main className={styles.container}>
-      <h1>Edit Activity</h1>
+      <h1 className={styles.allActivitiesTitle}>Edit Activity</h1>
       <form onSubmit={handleSubmit} autoComplete="off">
-        <label htmlFor="destination-input">Destination</label>
+        <label htmlFor="destination-input" className={styles.allActivitiesTitle}>Destination</label>
         <select
           required
           name="destination"
@@ -33,7 +33,7 @@ const EditActivity = ({handleUpdateActivity}) => {
           <option value="Dallas">Dallas</option>
           <option value="Miami">Miami</option>
         </select>
-        <label htmlFor="name-input">Name of Activity</label>
+        <label htmlFor="name-input" className={styles.allActivitiesTitle}>Name of Activity</label>
         <input
           required
           type="text"
@@ -44,7 +44,7 @@ const EditActivity = ({handleUpdateActivity}) => {
           onChange={handleChange}
           className={styles.input}
           />
-        <label htmlFor="description-input">Description</label>
+        <label htmlFor="description-input" className={styles.allActivitiesTitle}>Description</label>
         <textarea
           required
           type="text"
@@ -54,7 +54,7 @@ const EditActivity = ({handleUpdateActivity}) => {
           placeholder="...tell us more about this activity, highlights, traveler tips..."
           onChange={handleChange}
           />
-        <label htmlFor="cost-input">Cost ($, $$, $$$, $$$$)</label>
+        <label htmlFor="cost-input" className={styles.allActivitiesTitle}>Cost ($, $$, $$$, $$$$)</label>
         <select
           name="cost"
           id="cost-input"
@@ -66,7 +66,7 @@ const EditActivity = ({handleUpdateActivity}) => {
           <option value="$$$">$$$</option>
           <option value="$$$$">$$$$</option>
         </select>
-        <label htmlFor="time-of-day-input">Time of Day</label>
+        <label htmlFor="time-of-day-input" className={styles.allActivitiesTitle}>Time of Day</label>
         <select
           name="timeOfDay"
           id="time-of-day-input"
@@ -78,7 +78,7 @@ const EditActivity = ({handleUpdateActivity}) => {
           <option value="Afternoon">Afternoon</option>
           <option value="Evening">Evening</option>
         </select>
-        <label htmlFor="duration-input">Duration (in hours)</label>
+        <label htmlFor="duration-input" className={styles.allActivitiesTitle}>Duration (in hours)</label>
         <input
           required
           type="number"

@@ -49,3 +49,9 @@ input:focus, select:focus, textarea:focus {
   outline: none;
   border: 1px solid var(--primary);
 }
+.allActivitiesTitle{
+  background-color: rgba(255, 238, 235,.7);
+  width: fit-content;
+  margin: auto;
+  border-radius: 10px;
+}
