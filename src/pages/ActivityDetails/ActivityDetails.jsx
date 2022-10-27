@@ -26,12 +26,12 @@ const ActivityDetails = (props) => {
       const activityData = await activityService.show(id)
       setActivity(activityData)
     }
-    const fetchAllTrips = async() => {
-      const tripData = await tripService.index()
-      const userTripData = tripData.filter(trip => trip.owner._id === props.user.profile)
+    const fetchUserTrips = async () => {
+      const userTripData = await tripService.indexPersonal()
+      // console.log(userTripData)
       setUserTrips(userTripData)
     }
-    fetchAllTrips()
+    fetchUserTrips()
     fetchActivity()
   }, [id, props.user.profile])
 
