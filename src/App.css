@@ -3,6 +3,7 @@
 body {
   background: #FFEEEB;
   color: #2C2527;
+  font-family: 'Ubuntu', sans-serif;
 }
 a {
   --bs-link-color: #2c2527;
