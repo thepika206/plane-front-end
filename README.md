@@ -3,7 +3,7 @@
 ---
 ## Get started with Plan.e [🛫](https://wifi-travelers-plane.netlify.app)
 
-> To Get Started:
+> How to Get Started:
 >
 >1. If you are an existing member, log in to your account. If not, signup!
 >
