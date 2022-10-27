@@ -1,19 +1,48 @@
-# Plan.e 🛫
+# Plan.e [🛫](https://wifi-travelers-plane.netlify.app)  
 
 ---
+## About Plan.e 
 
-## Click [🛫](https://wifi-travelers-plane.netlify.app) to get started with Plan.e 
+
+---
+## Table of Contents
+
+>>  About Plan.e
+> - Our Solution: Plan.e, A stress-free and collaborative application for travelers.
+>> Table of Contents
+>
+>> Deloyment Link
+>
+>> Screenshots
+>
+>> Planning Materials
+> - Trello Board  
+> - Planning 
+
+
+
+
+
+
+## Click the  [🛫](https://wifi-travelers-plane.netlify.app)   to get started 
 ---
 
 ## Screenshots Below 📸 ==>
 ![screenshot](/src/assets/PlaneLanding.png)
 ![screenshot](src/assets/PlaneActivities.png)
-![screenshot](src/assets/UserFlowDiagram.png)
 
+## Plan.e Back-End Repository
+### View back-end repo [here](https://github.com/thepika206/plane-back-end) 💡
+
+## Planning Materials
 
 ### Trello Planning Board [here](https://trello.com/b/dML6GGmF/plane) 💡
+### Planning diagram
+![screenshot](src/assets/UserFlowDiagram.png)
+![screenshot](src/assets/PlaneErd.png)
 
-### [Plane Back-End Repository](https://github.com/thepika206/plane-back-end)
+
+
 
 
 ### How to use our app 📋
@@ -36,6 +65,8 @@
 
 ### Technologies Used 💻
  
+> React
+
 > HTML | CSS
 
 > Javascript
@@ -44,9 +75,9 @@
 
 > MongoDb with Mongoose
 
-> Google OAuth
+> Bootstrap
 
-> React
+> 
 
 ### Credits ✒️
 
@@ -58,7 +89,9 @@
 >
 > [Jennifer Juarez](https://github.com/J3NNog1)
 > 
-> GA engineering channel
+> GA Engineering Channel
+> 
+> Starter Project Template from Ben and David.
 
 ### Ice Box ❄️
 
