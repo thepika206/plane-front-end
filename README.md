@@ -20,19 +20,19 @@
 > 
 > To Get Started:
 >
->1. If you are an existing member, login to your account. If not, signup!
+>1. If you are an existing member, log in to your account. If not, signup!
 >
 >2. Create a New Trip
 >
 >3. Browse through the activities for the respected destination of your trip
 >
->4. Find an activity you like? Read more about it and whether or not other users liked it as well
+>4. Find an activity you like. Read more about it and whether or not other users liked it as well
 >
 >5. Want to add this activity to be a part of your trip? No problem, add it to your respected trip and Plan.e ahead of time
 >
 > Thank you for visiting our app. Cheers to safe and stress-free travels!
 
-### Technologies Used
+### Technologies Used 💻
  
 > HTML | CSS
 
@@ -46,7 +46,7 @@
 
 > React
 
-### Credits
+### Credits ✒️
 
 > [Patrick Cheung](https://github.com/thepika206)
 >
@@ -55,21 +55,24 @@
 > [Chris Elliott](https://github.com/chriselliott97)
 >
 > [Jennifer Juarez](https://github.com/J3NNog1)
+> 
+> GA engineering channel.
 
-### Ice Box 
+### Ice Box ❄️
 
 - [ ] AA Admin, I should be able to add destinations to the site.
 
-- [ ] AAU, I should be able to implement group aspect of planning the trips 
+- [ ] AAU, I should be able to implement the group aspect of planning the trips. 
 
-- [ ] AAU, I should be filter activities based on age rating
+- [ ] AAU, I should filter activities based on age rating.
 
-- [ ] AAU, when other users find your review helpful (helpful tag) - Lots of helpful tags gives you a verification tag
+- [ ] AAU, when other users find your review helpful (helpful tag) - Lots of helpful tags give you a verification tag.
 
 - [ ] AAU, I should be able to copy a pre-made travel plan into my account and modify it.
   
-- [ ] AAU, I should be able to filter activity categories
+- [ ] AAU, I should be able to filter activity categories.
   
-- [ ] AAU, I should be able to filter activities for my contributions
+- [ ] AAU, I should be able to filter activities for my contributions.
 
-- [ ] AAU, I should be able to filter activities for my contributions
+- [ ] AAU, I want to see everyones profiles and where they have been.
+  
