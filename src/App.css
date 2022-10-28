@@ -42,12 +42,6 @@ a {
   /* --bs-btn-bg: #20c997; */
   --bs-btn-hover-border-color: #DAD2E2;
 }
-.homePage{
-  background-image: url("./assets/PlaneBack.png");
-  background-repeat:repeat repeat;
-  background-size: contain;
-  min-height: 100vh;
-}
 
 .landingBtn,.tripEditButton{
   --bs-btn-bg: #FFEEEB;
