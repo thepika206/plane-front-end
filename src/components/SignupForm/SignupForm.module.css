@@ -6,15 +6,42 @@
   margin-bottom: 50px;
 }
 
+.formContainer {
+  display: flex;
+  flex-flow: inherit;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  width: 90vw;
+  max-width: 500px;
+}
+
 .label {
+  font-size: 2rem;
   background-color: rgba(255, 238, 235,.7);
 
   margin-right: .5rem;
 }
+
+.buttonGroup {
+  width: 100%;
+  margin-top: 50px;
+}
+
 .button {
     background-color: #4169e1;
     color: white;
+    font-size: 2rem;
+    
 }
+button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
 .inputContainer {
+  display: flex;
+  flex-flow: inherit;
+  width: 100%;
   margin-bottom: 1rem;
 }

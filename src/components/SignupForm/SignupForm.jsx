@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styles from './SignupForm.module.css'
 import * as authService from '../../services/authService'
 
@@ -46,10 +46,10 @@ const SignupForm = props => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className={styles.container}
+      className={styles.formContainer}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>Name</label>
+        <label htmlFor="name" className={styles.label}>Name *</label>
         <input
           type="text"
           autoComplete="off"
@@ -57,10 +57,11 @@ const SignupForm = props => {
           value={name}
           name="name"
           onChange={handleChange}
+          required
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
+        <label htmlFor="email" className={styles.label}>Email *</label>
         <input
           type="text"
           autoComplete="off"
@@ -71,7 +72,7 @@ const SignupForm = props => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
+        <label htmlFor="password" className={styles.label}>Password *</label>
         <input
           type="password"
           autoComplete="off"
@@ -83,7 +84,7 @@ const SignupForm = props => {
       </div>
       <div className={styles.inputContainer}>
         <label htmlFor="confirm" className={styles.label}>
-          Confirm Password
+          Confirm Password *
         </label>
         <input
           type="password"
@@ -105,13 +106,11 @@ const SignupForm = props => {
           onChange={handleChangePhoto}
         />
       </div>
-      <div className={styles.inputContainer}>
+      <div className={styles.buttonGroup}>
         <button disabled={isFormInvalid()} className={styles.button}>
           Sign Up
         </button>
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
+        <p>* Required field</p>
       </div>
     </form>
   )
